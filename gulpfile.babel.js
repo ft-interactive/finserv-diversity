@@ -241,7 +241,7 @@ gulp.task('styles', () =>
 
 // renames asset files and adds a rev-manifest.json
 gulp.task('revision', () =>
-  gulp.src(['dist/**/*.css', 'dist/**/*.js'])
+  gulp.src(['dist/**/*.css', 'dist/**/*.js', 'dist/**/*.jsx'])
     .pipe(rev())
     .pipe(gulp.dest('dist'))
     .pipe(rev.manifest())
