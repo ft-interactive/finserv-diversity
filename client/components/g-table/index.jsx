@@ -63,6 +63,7 @@ class GTable extends Component {
                 field="bank"
               />
             }
+            fixed={true}
             width={161}
           />
 
