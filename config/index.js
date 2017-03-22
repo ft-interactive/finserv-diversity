@@ -12,16 +12,19 @@ export default async () => {
   const onwardJourney = await getOnwardJourney();
   const berthaId = '1Z4GFsSPGVYAY1Y04qWWO-ZnkH5jnNOpUF6MGwiDyp6E';
   const endpoint = `http://bertha.ig.ft.com/view/publish/gss/${berthaId}/data`;
-  const table = ReactDOMServer.renderToString(<GTable />);
   let berthaData;
+  let table;
 
   try {
     const res = await axios(endpoint);
 
     berthaData = res.data;
+
+    table = ReactDOMServer.renderToString(<GTable data={berthaData} />);
   } catch (e) {
     console.log('Error getting content from Bertha:', e);
   }
+
   /*
   An experimental demo that gets content from the API
   and overwrites some model values. This requires the Link File
