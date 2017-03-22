@@ -6,9 +6,7 @@ function App() {
   const data = JSON.parse(document.getElementById('table-data').textContent);
 
   return (
-    <GTable
-      data={data}
-    />
+    <GTable data={data} />
   );
 }
 
