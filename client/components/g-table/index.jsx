@@ -1,5 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Table, Column, Cell } from 'fixed-data-table';
+
+function TextCell(props) {
+  return (
+    <Cell>
+      {props.data[props.rowIndex][props.field]}
+    </Cell>
+  );
+}
 
 function GTable(props) {
   return (
@@ -11,7 +19,13 @@ function GTable(props) {
       headerHeight={50}
     >
       <Column
-        cell={<Cell>Basic content</Cell>}
+        header={<Cell>Bank/Insurer</Cell>}
+        cell={
+          <TextCell
+            data={props.data}
+            field="bank"
+          />
+        }
         width={200}
       />
     </Table>
