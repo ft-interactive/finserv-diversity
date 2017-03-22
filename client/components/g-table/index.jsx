@@ -4,21 +4,21 @@ import { Table, Column, Cell } from 'fixed-data-table';
 function TextCell(props) {
   const value = props.data[props.rowIndex][props.field];
 
-  if (value !== 'nd') {
-    return <Cell>{value}</Cell>;
+  if (value === 'nd' || value == null) {
+    return <Cell><em>No data</em></Cell>;
   }
 
-  return <Cell><em>No data</em></Cell>;
+  return <Cell>{value}</Cell>;
 }
 
 function IntegerCell(props) {
   const value = props.data[props.rowIndex][props.field];
 
-  if (value !== 'nd') {
-    return <Cell>{value.toLocaleString('en-GB')}</Cell>;
+  if (isNaN(value) || value == null) {
+    return <Cell><em>No data</em></Cell>;
   }
 
-  return <Cell><em>No data</em></Cell>;
+  return <Cell>{value.toLocaleString('en-GB')}</Cell>;
 }
 
 function GTable(props) {
