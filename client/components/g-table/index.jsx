@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { Table, Column, Cell } from 'fixed-data-table';
 
 function TextCell(props) {
-  return (
-    <Cell>
-      {props.data[props.rowIndex][props.field]}
-    </Cell>
-  );
+  const value = props.data[props.rowIndex][props.field];
+
+  if (value !== 'nd') {
+    return <Cell>{value}</Cell>;
+  }
+
+  return null;
 }
 
 function GTable(props) {
@@ -24,6 +26,17 @@ function GTable(props) {
           <TextCell
             data={props.data}
             field="bank"
+          />
+        }
+        width={200}
+      />
+
+      <Column
+        header={<Cell>Total Employees</Cell>}
+        cell={
+          <TextCell
+            data={props.data}
+            field="employees"
           />
         }
         width={200}
