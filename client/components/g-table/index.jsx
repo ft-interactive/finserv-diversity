@@ -52,9 +52,8 @@ class GTable extends Component {
           rowsCount={this.state.data.length}
           rowHeight={50}
           width={this.state.tableWidth}
-          height={this.state.data.length * 52}
+          height={422}
           headerHeight={50}
-          footerHeight={50}
         >
           <Column
             header={<Cell>Bank/Insurer</Cell>}
