@@ -4,7 +4,7 @@ import { Table, Column, Cell } from 'fixed-data-table';
 function GTable() {
   return (
     <Table
-      rowsCount={100}
+      rowsCount={50}
       rowHeight={50}
       width={1000}
       height={500}
