@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import article from './article';
@@ -9,7 +10,18 @@ export default async () => {
   const d = await article();
   const flags = await getFlags();
   const onwardJourney = await getOnwardJourney();
+  const berthaId = '1Z4GFsSPGVYAY1Y04qWWO-ZnkH5jnNOpUF6MGwiDyp6E';
+  const endpoint = `http://bertha.ig.ft.com/view/publish/gss/${berthaId}/data`;
   const table = ReactDOMServer.renderToString(<GTable />);
+  let berthaData;
+
+  try {
+    const res = await axios(endpoint);
+
+    berthaData = res.data;
+  } catch (e) {
+    console.log('Error getting content from Bertha:', e);
+  }
   /*
   An experimental demo that gets content from the API
   and overwrites some model values. This requires the Link File
@@ -36,6 +48,7 @@ export default async () => {
     ...d,
     flags,
     onwardJourney,
+    berthaData,
     table,
   };
 };

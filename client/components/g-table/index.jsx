@@ -1,10 +1,10 @@
 import React from 'react';
 import { Table, Column, Cell } from 'fixed-data-table';
 
-function GTable() {
+function GTable(props) {
   return (
     <Table
-      rowsCount={50}
+      rowsCount={props.data.length}
       rowHeight={50}
       width={1000}
       height={500}
@@ -17,5 +17,9 @@ function GTable() {
     </Table>
   );
 }
+
+GTable.propTypes = {
+  data: React.PropTypes.array.isRequired, // eslint-disable-line
+};
 
 export default GTable;
