@@ -3,6 +3,8 @@ import { Table, Column, Cell } from 'fixed-data-table';
 
 export default (data) => {
   return (
-    <Table />
+    <div>
+      <p>It works!</p>
+    </div>
   );
 };
