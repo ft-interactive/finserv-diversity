@@ -8,7 +8,17 @@ function TextCell(props) {
     return <Cell>{value}</Cell>;
   }
 
-  return null;
+  return <Cell><em>No data</em></Cell>;
+}
+
+function IntegerCell(props) {
+  const value = props.data[props.rowIndex][props.field];
+
+  if (value !== 'nd') {
+    return <Cell>{value.toLocaleString('en-GB')}</Cell>;
+  }
+
+  return <Cell><em>No data</em></Cell>;
 }
 
 function GTable(props) {
@@ -34,7 +44,7 @@ function GTable(props) {
       <Column
         header={<Cell>Total Employees</Cell>}
         cell={
-          <TextCell
+          <IntegerCell
             data={props.data}
             field="employees"
           />
