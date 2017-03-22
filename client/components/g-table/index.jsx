@@ -56,25 +56,113 @@ class GTable extends Component {
           headerHeight={50}
         >
           <Column
-            header={<Cell>Bank/Insurer</Cell>}
+            header={<Cell>Bank/insurer</Cell>}
             cell={
               <TextCell
                 data={this.state.data}
                 field="bank"
               />
             }
-            width={200}
+            width={161}
           />
 
           <Column
-            header={<Cell>Total Employees</Cell>}
+            header={<Cell>Total employees</Cell>}
             cell={
               <IntegerCell
                 data={this.state.data}
                 field="employees"
               />
             }
-            width={200}
+            width={142}
+          />
+
+          <Column
+            header={<Cell>Total women</Cell>}
+            cell={
+              <IntegerCell
+                data={this.state.data}
+                field="womentotal"
+              />
+            }
+            width={142}
+          />
+
+          <Column
+            header={<Cell>2016 total women</Cell>}
+            cell={
+              <TextCell
+                data={this.state.data}
+                field="womentotal2016"
+              />
+            }
+            width={142}
+          />
+
+          <Column
+            header={<Cell>2016 junior women</Cell>}
+            cell={
+              <TextCell
+                data={this.state.data}
+                field="womenjr2016"
+              />
+            }
+            width={142}
+          />
+
+          <Column
+            header={<Cell>2016 middle women</Cell>}
+            cell={
+              <TextCell
+                data={this.state.data}
+                field="womenmid2016"
+              />
+            }
+            width={142}
+          />
+
+          <Column
+            header={<Cell>2016 senior women</Cell>}
+            cell={
+              <TextCell
+                data={this.state.data}
+                field="womensr2016"
+              />
+            }
+            width={142}
+          />
+
+          <Column
+            header={<Cell>2014 junior women</Cell>}
+            cell={
+              <TextCell
+                data={this.state.data}
+                field="womenjr2014"
+              />
+            }
+            width={142}
+          />
+
+          <Column
+            header={<Cell>2014 middle women</Cell>}
+            cell={
+              <TextCell
+                data={this.state.data}
+                field="womenmid2014"
+              />
+            }
+            width={142}
+          />
+
+          <Column
+            header={<Cell>2014 senior women</Cell>}
+            cell={
+              <TextCell
+                data={this.state.data}
+                field="womensr2014"
+              />
+            }
+            width={142}
           />
         </Table>
       </div>
