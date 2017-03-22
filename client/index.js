@@ -1,4 +1,11 @@
+import React from 'react';
 import ReactDOM from 'react-dom';
-import table from './components/table/index.jsx';
+import GTable from './components/g-table/index.jsx';
 
-ReactDOM.render(table(), document.getElementById('table-container'));
+function App() {
+  return <GTable />;
+}
+
+const reactApp = <App />;
+
+ReactDOM.render(reactApp, document.getElementById('react-container'));
