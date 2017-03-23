@@ -31,6 +31,7 @@ class GTable extends Component {
       tableWidth: 0,
     };
     this.handleResize = this.handleResize.bind(this);
+    this.handleFilterChange = this.handleFilterChange.bind(this);
   }
 
   componentDidMount() {
@@ -45,9 +46,35 @@ class GTable extends Component {
     console.log(this.node.offsetWidth);
   }
 
+  handleFilterChange(element) {
+    const filterTerm = element.target.value.toLowerCase();
+    const filteredData = [];
+
+    for (const d of this.props.data) { // eslint-disable-line
+      if (d.bank.toLowerCase().indexOf(filterTerm) !== -1) {
+        filteredData.push(d);
+      }
+    }
+
+    this.setState({ data: filteredData });
+  }
+
   render() {
     return (
       <div ref={(node) => { this.node = node; }}>
+        <div className="o-grid-container">
+          <div className="o-grid-row">
+            <div data-o-grid-colspan="12 S11 Scenter M9 L8 XL7">
+              <div className="input-label">Input label</div>
+
+              <input
+                onChange={this.handleFilterChange}
+                placeholder="Filter by bank/insurer name"
+              />
+            </div>
+          </div>
+        </div>
+
         <Table
           rowsCount={this.state.data.length}
           rowHeight={50}
