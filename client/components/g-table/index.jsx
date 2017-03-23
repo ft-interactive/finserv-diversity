@@ -12,7 +12,7 @@ function TextCell(props) {
   return <Cell>{value}</Cell>;
 }
 
-function IntegerCell(props) {
+function NumberCell(props) {
   const value = props.data[props.rowIndex][props.field];
 
   if (isNaN(value) || value == null) {
@@ -47,7 +47,7 @@ class GTable extends Component {
 
   render() {
     return (
-      <div ref={node => { this.node = node; }}>
+      <div ref={(node) => { this.node = node; }}>
         <Table
           rowsCount={this.state.data.length}
           rowHeight={50}
@@ -63,14 +63,14 @@ class GTable extends Component {
                 field="bank"
               />
             }
-            fixed={true}
+            fixed
             width={161}
           />
 
           <Column
             header={<Cell>Total employees</Cell>}
             cell={
-              <IntegerCell
+              <NumberCell
                 data={this.state.data}
                 field="employees"
               />
@@ -81,7 +81,7 @@ class GTable extends Component {
           <Column
             header={<Cell>Total women</Cell>}
             cell={
-              <IntegerCell
+              <NumberCell
                 data={this.state.data}
                 field="womentotal"
               />
@@ -170,6 +170,18 @@ class GTable extends Component {
     );
   }
 }
+
+TextCell.propTypes = {
+  data: React.PropTypes.array.isRequired, // eslint-disable-line
+  rowIndex: React.PropTypes.number.isRequired,
+  field: React.PropTypes.string.isRequired,
+};
+
+NumberCell.propTypes = {
+  data: React.PropTypes.array.isRequired, // eslint-disable-line
+  rowIndex: React.PropTypes.number.isRequired,
+  field: React.PropTypes.string.isRequired,
+};
 
 GTable.propTypes = {
   data: React.PropTypes.array.isRequired, // eslint-disable-line
