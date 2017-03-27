@@ -1,2 +1,4 @@
 env:
   browser: true
+rules:
+  react/no-multi-comp: 1

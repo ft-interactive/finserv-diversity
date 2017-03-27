@@ -1,3 +1,7 @@
+@import "o-icons/main";
+
+$o-icons-is-silent: false;
+
 input {
   display: block;
   box-sizing: border-box;
@@ -16,6 +20,22 @@ input {
   font-family: $font-sans;
   font-size: 22px;
   color: #505050;
+}
+
+.sort-header {
+  width: 100%;
+  height: inherit;
+  cursor: pointer;
+  i {
+    float: right;
+    margin-top: -3px;
+    &.arrow-down {
+      @include oIconsGetIcon('arrow-down', #000000, 24);
+    }
+    &.arrow-up {
+      @include oIconsGetIcon('arrow-up', #000000, 24);
+    }
+  }
 }
 
 
