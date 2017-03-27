@@ -47,7 +47,7 @@ export default () => ({ // eslint-disable-line
   title: '',
 
   // meta data
-  description: '',
+  description: 'description',
 
   /*
   TODO: Select Twitter card type -
