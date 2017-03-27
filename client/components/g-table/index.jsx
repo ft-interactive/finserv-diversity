@@ -44,7 +44,7 @@ class SortHeaderCell extends Component {
 
   render() {
     const field = this.props.field;
-    const direction = this.state.sortDirection ?
+    const direction = this.state.sortDirection ? // eslint-disable-line
       (this.state.sortDirection === 'descending' ? this.state.sortDirection : 'ascending') :
       'descending';
 
@@ -53,14 +53,7 @@ class SortHeaderCell extends Component {
         onClick={() => this.handleSortChange(field, direction)}
         className="sort-header"
       >
-        {this.props.value}
-        {this.state.sortDirection ? // eslint-disable-line
-          (direction === 'descending' ?
-            <i className="arrow-down" /> :
-            <i className="arrow-up" />
-          ) :
-          ''
-        }
+        {this.props.value}<i className="arrows-up-down" />
       </Cell>
     );
   }
@@ -73,6 +66,7 @@ class GTable extends Component {
     this.state = {
       data: this.props.data,
       tableWidth: 0,
+      sortField: null,
     };
     this.handleResize = this.handleResize.bind(this);
     this.handleFilterChange = this.handleFilterChange.bind(this);
@@ -105,21 +99,36 @@ class GTable extends Component {
   }
 
   handleSortChange(field, direction) {
-    const data = this.props.data;
+    const data = this.state.data;
 
     data.sort((a, b) => {
-      if (a[field].toLowerCase() < b[field].toLowerCase()) {
+      if (isNaN(a[field])) {
+        if (a[field].toLowerCase() < b[field].toLowerCase()) {
+          return direction === 'ascending' ? -1 : 1;
+        }
+
+        if (a[field].toLowerCase() > b[field].toLowerCase()) {
+          return direction === 'ascending' ? 1 : -1;
+        }
+
+        return 0;
+      }
+
+      if (a[field] < b[field]) {
         return direction === 'ascending' ? -1 : 1;
       }
 
-      if (a[field].toLowerCase() > b[field].toLowerCase()) {
+      if (a[field] > b[field]) {
         return direction === 'ascending' ? 1 : -1;
       }
 
       return 0;
     });
 
-    this.setState({ data });
+    this.setState({
+      data,
+      sortField: field,
+    });
   }
 
   render() {
@@ -148,12 +157,12 @@ class GTable extends Component {
           headerHeight={50}
         >
           <Column
-            // header={<Cell>Bank/insurer</Cell>}
             header={
               <SortHeaderCell
                 field="bank"
                 value="Bank/insurer"
                 sortData={this.handleSortChange}
+                currentSortField={this.state.sortField}
               />
             }
             cell={
@@ -179,14 +188,21 @@ class GTable extends Component {
           />
 
           <Column
-            header={<Cell>Total employees</Cell>}
+            header={
+              <SortHeaderCell
+                field="employees"
+                value="Total employees"
+                sortData={this.handleSortChange}
+                currentSortField={this.state.sortField}
+              />
+            }
             cell={
               <NumberCell
                 data={this.state.data}
                 field="employees"
               />
             }
-            width={142}
+            width={145}
           />
 
           <Column

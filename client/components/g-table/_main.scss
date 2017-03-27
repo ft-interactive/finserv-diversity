@@ -29,11 +29,9 @@ input {
   i {
     float: right;
     margin-top: -3px;
-    &.arrow-down {
-      @include oIconsGetIcon('arrow-down', #000000, 24);
-    }
-    &.arrow-up {
-      @include oIconsGetIcon('arrow-up', #000000, 24);
+    margin-right: -8px;
+    &.arrows-up-down {
+      @include oIconsGetIcon('arrows-up-down', #000000, 24);
     }
   }
 }
