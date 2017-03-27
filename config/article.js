@@ -30,7 +30,7 @@ export default () => ({ // eslint-disable-line
   mainImage: {
     title: '',
     description: '',
-    url: '',
+    url: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3Ac4bf0be4-7c15-11e4-a7b8-00144feabdc0?source=ig&width=2048&height=1152',
     width: 2048, // ensure correct width
     height: 1152, // ensure correct height
   },
