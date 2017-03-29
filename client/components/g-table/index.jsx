@@ -30,7 +30,7 @@ function PercentageCell(props) {
     return <Cell><em>-</em></Cell>;
   }
 
-  return <Cell>{Math.round(value * 100).toFixed(2)}%</Cell>;
+  return <Cell>{(value * 100).toFixed(1)}%</Cell>;
 }
 
 class SortHeaderCell extends Component {
