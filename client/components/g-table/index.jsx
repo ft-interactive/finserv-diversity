@@ -7,7 +7,7 @@ function TextCell(props) {
   const value = props.data[props.rowIndex][props.field];
 
   if (value === 'nd' || value == null) {
-    return <Cell style={props.style}><em>No data</em></Cell>;
+    return <Cell style={props.style}><em>-</em></Cell>;
   }
 
   return <Cell style={props.style}>{value}</Cell>;
@@ -17,10 +17,20 @@ function NumberCell(props) {
   const value = props.data[props.rowIndex][props.field];
 
   if (isNaN(value) || value == null) {
-    return <Cell><em>No data</em></Cell>;
+    return <Cell><em>-</em></Cell>;
   }
 
   return <Cell>{value.toLocaleString('en-GB')}</Cell>;
+}
+
+function PercentageCell(props) {
+  const value = props.data[props.rowIndex][props.field];
+
+  if (isNaN(value) || value == null) {
+    return <Cell><em>-</em></Cell>;
+  }
+
+  return <Cell>{Math.round(value * 100).toFixed(2)}%</Cell>;
 }
 
 class SortHeaderCell extends Component {
@@ -174,6 +184,7 @@ class GTable extends Component {
             }
             fixed
             width={161}
+            flexGrow={1}
           />
 
           <Column
@@ -201,96 +212,77 @@ class GTable extends Component {
           <Column
             header={
               <SortHeaderCell
-                field="employees"
-                value="Total employees"
+                field="womentotal2016"
+                value="2016 total women"
                 sortData={this.handleSortChange}
                 currentSortField={this.state.sortField}
               />
             }
             cell={
-              <NumberCell
-                data={this.state.data}
-                field="employees"
-              />
-            }
-            width={145}
-          />
-
-          <Column
-            header={<Cell>2016 total women</Cell>}
-            cell={
-              <TextCell
+              <PercentageCell
                 data={this.state.data}
                 field="womentotal2016"
               />
             }
-            width={142}
+            width={145}
+            flexGrow={1}
           />
 
           <Column
-            header={<Cell>2016 junior women</Cell>}
+            header={
+              <SortHeaderCell
+                field="womenjr2016"
+                value="2016 junior women"
+                sortData={this.handleSortChange}
+                currentSortField={this.state.sortField}
+              />
+            }
             cell={
-              <TextCell
+              <PercentageCell
                 data={this.state.data}
                 field="womenjr2016"
               />
             }
-            width={142}
+            width={153}
+            flexGrow={1}
           />
 
           <Column
-            header={<Cell>2016 middle women</Cell>}
+            header={
+              <SortHeaderCell
+                field="womenmid2016"
+                value="2016 middle women"
+                sortData={this.handleSortChange}
+                currentSortField={this.state.sortField}
+              />
+            }
             cell={
-              <TextCell
+              <PercentageCell
                 data={this.state.data}
                 field="womenmid2016"
               />
             }
-            width={142}
+            width={159}
+            flexGrow={1}
           />
 
           <Column
-            header={<Cell>2016 senior women</Cell>}
+            header={
+              <SortHeaderCell
+                field="womensr2016"
+                value="2016 senior women"
+                sortData={this.handleSortChange}
+                currentSortField={this.state.sortField}
+              />
+            }
             cell={
-              <TextCell
+              <PercentageCell
                 data={this.state.data}
                 field="womensr2016"
               />
             }
-            width={142}
-          />
-
-          <Column
-            header={<Cell>2014 junior women</Cell>}
-            cell={
-              <TextCell
-                data={this.state.data}
-                field="womenjr2014"
-              />
-            }
-            width={142}
-          />
-
-          <Column
-            header={<Cell>2014 middle women</Cell>}
-            cell={
-              <TextCell
-                data={this.state.data}
-                field="womenmid2014"
-              />
-            }
-            width={142}
-          />
-
-          <Column
-            header={<Cell>2014 senior women</Cell>}
-            cell={
-              <TextCell
-                data={this.state.data}
-                field="womensr2014"
-              />
-            }
-            width={142}
+            width={155}
+            flexGrow={1}
           />
         </Table>
       </div>

@@ -1,7 +1,7 @@
 export default () => ({ // eslint-disable-line
 
   // link file UUID
-  id: '5729f162-0e2a-11e7-b030-768954394623',
+  id: '41d3ef6c-1469-11e7-80f4-13e067d5072c',
 
   // canonical URL of the published page
   // https://ig.ft.com/finserv-diversity get filled in by the ./configure script
