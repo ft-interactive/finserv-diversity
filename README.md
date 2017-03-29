@@ -1,4 +1,4 @@
-# [finserv-diversity](https://ig.ft.com/finserv-diversity)
+# [finserv-diversity](https://ig.ft.com/managements-missing-women-data)
 
 >
 

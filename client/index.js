@@ -12,4 +12,4 @@ function App() {
 
 const reactApp = <App />;
 
-ReactDOM.render(reactApp, document.getElementById('react-container'));
+ReactDOM.render(reactApp, document.getElementById('table'));

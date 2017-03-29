@@ -5,17 +5,16 @@ export default () => ({ // eslint-disable-line
 
   // canonical URL of the published page
   // https://ig.ft.com/finserv-diversity get filled in by the ./configure script
-  url: 'https://ig.ft.com/finserv-diversity',
+  url: 'https://ig.ft.com/managements-missing-women-data',
 
   // To set an exact publish date do this:
   //       new Date('2016-05-17T17:11:22Z')
   publishedDate: new Date('2017-04-03T05:30:00Z'),
 
-  headline: 'finserv-diversity',
+  headline: 'Management\'s missing women',
 
   // summary === standfirst (Summary is what the content API calls it)
-  summary: 'Political language is designed to make lies sound truthful' +
-           'and murder respectable, and to give an appearance of solidity to pure wind',
+  summary: 'TK STANDFIRST TK',
 
   topic: {
     name: 'Financial Services',
@@ -41,6 +40,7 @@ export default () => ({ // eslint-disable-line
     { name: 'Laura Noonan', url: 'https://www.ft.com/stream/authorsId/Q0ItTE41Njc4OQ==-QXV0aG9ycw==' },
     { name: 'Alan Smith', url: 'https://www.ft.com/alan-smith' },
     { name: 'David Blood', url: 'https://www.ft.com/david-blood' },
+    { name: 'Martin Stabe', url: 'https://www.ft.com/martin-stabe' },
   ],
 
   // Appears in the HTML <title>
