@@ -188,7 +188,7 @@ class GTable extends Component {
           />
 
           <Column
-            header={<Cell>Chart</Cell>}
+            header={<Cell>Change 2014-2016</Cell>}
             cell={
               <ChartCell
                 data={this.state.data}

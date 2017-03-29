@@ -35,7 +35,7 @@ class SlopeChart extends Component {
   render() {
     const translate = `translate(${this.props.marginLeft}, ${this.props.marginTop})`;
     const slopes = this.state.series.map((d, i) => {
-      const key = `line${i}`;
+      const key = `slope${i}`;
 
       if (!isNaN(d[0]) && !isNaN(d[1])) {
         return (
@@ -90,11 +90,11 @@ class SlopeChart extends Component {
         height={this.props.height}
       >
         <Axis
-          width={this.width}
+          width={this.props.width}
           height={this.height}
           axisMarginTop={this.props.marginTop}
           axisMarginLeft={this.props.marginLeft + this.circleRadius + 20}
-          axisMarginRight={this.props.marginRight - this.circleRadius - 20}
+          axisMarginRight={this.props.marginRight + this.circleRadius + 20}
           domain={[0, 0.8]}
           range={[this.height, 0]}
         />

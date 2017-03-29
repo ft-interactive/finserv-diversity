@@ -29,10 +29,17 @@ class Axis extends Component {
       .range(props.range);
 
     this.axisLeft
-      .tickValues([0.0, 0.5, 0.8]);
+      .tickValues([0, 0.5, 0.8])
+      .tickSize((props.width - props.axisMarginLeft - props.axisMarginRight) * -1, -6);
 
     this.axisRight
-      .ticks(0);
+      .ticks(0)
+      .tickSize(0, 0);
+
+    d3.selectAll('g.tick')
+        .filter(d => d === 0.5)
+      .select('line')
+        .attr('class', 'equality');
   }
 
   renderAxis() {

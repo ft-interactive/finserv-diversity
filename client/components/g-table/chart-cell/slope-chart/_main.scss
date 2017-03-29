@@ -33,9 +33,16 @@ g.slope {
 g.axis {
   path, line {
     fill: none;
-    stroke: #c3bcb0;
     stroke-width: 2px;
     shape-rendering: crispEdges;
+  }
+  line {
+    stroke: #c3bcb0;
+    stroke-width: 1px;
+    stroke-dasharray: 6, 100;
+    &.equality {
+      stroke-dasharray: 0;
+    }
   }
   text {
     fill: #6b6e68;
