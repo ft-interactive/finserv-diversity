@@ -28,7 +28,7 @@ class SlopeChart extends Component {
     this.height = props.height - props.marginTop - props.marginBottom;
 
     this.yScale
-        .domain([0, 0.8])
+        .domain([0, 1])
         .range([0, this.height]);
   }
 
@@ -95,7 +95,7 @@ class SlopeChart extends Component {
           axisMarginTop={this.props.marginTop}
           axisMarginLeft={this.props.marginLeft + this.circleRadius + 20}
           axisMarginRight={this.props.marginRight - this.circleRadius - 20}
-          domain={[0, 0.8]}
+          domain={[0, 1]}
           range={[this.height, 0]}
         />
         {slopeChart}

@@ -29,7 +29,7 @@ class Axis extends Component {
       .range(props.range);
 
     this.axisLeft
-      .tickValues([0.0, 0.5, 0.8]);
+      .tickValues([0.0, 0.5, 1]);
 
     this.axisRight
       .ticks(0);
