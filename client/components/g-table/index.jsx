@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Table, Column, Cell } from 'fixed-data-table';
 import throttle from 'lodash/throttle';
+import ChartCell from './chart-cell/index.jsx';
 
 function TextCell(props) {
   const value = props.data[props.rowIndex][props.field];
@@ -64,7 +65,7 @@ class GTable extends Component {
     super(props);
 
     this.state = {
-      data: this.props.data,
+      data: props.data,
       tableWidth: 0,
       sortField: null,
     };
@@ -151,9 +152,9 @@ class GTable extends Component {
 
         <Table
           rowsCount={this.state.data.length}
-          rowHeight={50}
+          rowHeight={100}
           width={this.state.tableWidth}
-          height={422}
+          height={395}
           headerHeight={50}
         >
           <Column
@@ -173,6 +174,16 @@ class GTable extends Component {
             }
             fixed
             width={161}
+          />
+
+          <Column
+            header={<Cell>Chart</Cell>}
+            cell={
+              <ChartCell
+                data={this.state.data}
+              />
+            }
+            width={135}
           />
 
           <Column

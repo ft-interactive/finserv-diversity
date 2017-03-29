@@ -1,0 +1,32 @@
+g.slope {
+  &.slope-s {
+    opacity: 0.8;
+    line {
+      stroke: #af516c;
+      stroke-width: 2px;
+    }
+    circle {
+      fill: #af516c;
+    }
+  }
+  &.slope-m {
+    opacity: 0.8;
+    line {
+      stroke: #ecafaf;
+      stroke-width: 2px;
+    }
+    circle {
+      fill: #ecafaf;
+    }
+  }
+  &.slope-j {
+    opacity: 0.8;
+    line {
+      stroke: #d7706c;
+      stroke-width: 2px;
+    }
+    circle {
+      fill: #d7706c;
+    }
+  }
+}
