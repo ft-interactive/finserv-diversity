@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import d3 from 'd3';
+import Axis from './axis.jsx';
 
 class SlopeChart extends Component {
   constructor(props) {
@@ -44,18 +45,18 @@ class SlopeChart extends Component {
             key={key}
           >
             <line
-              x1={this.circleRadius}
+              x1={this.circleRadius + 20}
               y1={this.height - this.yScale(d[0])}
-              x2={this.width - this.circleRadius}
+              x2={this.width - this.circleRadius - 20}
               y2={this.height - this.yScale(d[1])}
             />
             <circle
-              cx={this.circleRadius}
+              cx={this.circleRadius + 20}
               cy={this.height - this.yScale(d[0])}
               r={this.circleRadius}
             />
             <circle
-              cx={this.width - this.circleRadius}
+              cx={this.width - this.circleRadius - 20}
               cy={this.height - this.yScale(d[1])}
               r={this.circleRadius}
             />
@@ -88,6 +89,15 @@ class SlopeChart extends Component {
         width={this.props.width}
         height={this.props.height}
       >
+        <Axis
+          width={this.width}
+          height={this.height}
+          axisMarginTop={this.props.marginTop}
+          axisMarginLeft={this.props.marginLeft + this.circleRadius + 20}
+          axisMarginRight={this.props.marginRight - this.circleRadius - 20}
+          domain={[0, 0.8]}
+          range={[this.height, 0]}
+        />
         {slopeChart}
       </svg>
     );
@@ -100,6 +110,7 @@ SlopeChart.propTypes = {
   height: React.PropTypes.number.isRequired,
   marginTop: React.PropTypes.number.isRequired,
   marginLeft: React.PropTypes.number.isRequired,
+  marginRight: React.PropTypes.number.isRequired,
 };
 
 export default SlopeChart;

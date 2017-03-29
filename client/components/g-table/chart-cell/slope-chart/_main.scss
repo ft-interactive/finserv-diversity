@@ -30,3 +30,15 @@ g.slope {
     }
   }
 }
+g.axis {
+  path, line {
+    fill: none;
+    stroke: #c3bcb0;
+    stroke-width: 2px;
+    shape-rendering: crispEdges;
+  }
+  text {
+    fill: #6b6e68;
+    font-size: 10px;
+  }
+}
