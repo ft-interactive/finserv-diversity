@@ -10,7 +10,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-var React = require('React');
+var React = require('react');
 
 var TouchableArea = React.createClass({
   getDefaultProps() {
