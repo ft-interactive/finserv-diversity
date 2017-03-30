@@ -78,6 +78,7 @@ class GTable extends Component {
     this.state = {
       data: props.data,
       tableWidth: 0,
+      tableHeight: 0,
       sortField: null,
     };
     this.handleResize = this.handleResize.bind(this);
@@ -92,9 +93,12 @@ class GTable extends Component {
   }
 
   handleResize() {
-    this.setState({ tableWidth: this.node.offsetWidth });
+    this.setState({
+      tableWidth: this.node.offsetWidth,
+      tableHeight: Math.max(document.documentElement.clientHeight, window.innerHeight || 0) - 159,
+    });
 
-    console.log(this.node.offsetWidth);
+    // console.log(this.state.tableWidth, this.state.tableHeight);
   }
 
   handleFilterChange(element) {
@@ -152,6 +156,7 @@ class GTable extends Component {
               <div className="input-label">Filter by bank/insurer</div>
 
               <input
+                type="text"
                 onChange={this.handleFilterChange}
                 placeholder="Start typing a bank/insurer name"
               />
@@ -163,13 +168,13 @@ class GTable extends Component {
 
         <TouchExampleWrapper
           tableWidth={this.state.tableWidth}
-          tableHeight={395}
+          tableHeight={this.state.tableHeight}
         >
           <Table
             rowsCount={this.state.data.length}
             rowHeight={100}
             width={this.state.tableWidth}
-            // height={395}
+            height={this.state.tableHeight}
             headerHeight={50}
             touchScrollEnabled
           >
@@ -198,9 +203,12 @@ class GTable extends Component {
                 <Cell className="chart-cell-header">
                   <div className="title">Change 2014-2016</div>
                   <div className="legend">
-                    <div className="legend-bar legend-bar-jr" /><span className="legend-text">Junior</span>
-                    <div className="legend-bar legend-bar-mid" /><span className="legend-text">Mid</span>
-                    <div className="legend-bar legend-bar-sr" /><span className="legend-text">Senior</span>
+                    <div className="legend-bar legend-bar-jr" />
+                    <span className="legend-text">Junior</span>
+                    <div className="legend-bar legend-bar-mid" />
+                    <span className="legend-text">Mid</span>
+                    <div className="legend-bar legend-bar-sr" />
+                    <span className="legend-text">Senior</span>
                   </div>
                 </Cell>}
               cell={
@@ -324,6 +332,17 @@ NumberCell.propTypes = {
 };
 
 NumberCell.defaultProps = {
+  rowIndex: 0,
+  field: '',
+};
+
+PercentageCell.propTypes = {
+  data: React.PropTypes.array, // eslint-disable-line
+  rowIndex: React.PropTypes.number,
+  field: React.PropTypes.string,
+};
+
+PercentageCell.defaultProps = {
   rowIndex: 0,
   field: '',
 };
