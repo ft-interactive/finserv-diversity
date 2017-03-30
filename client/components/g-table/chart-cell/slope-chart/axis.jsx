@@ -30,7 +30,7 @@ class Axis extends Component {
 
     this.axisLeft
       .tickValues([0, 0.5, 0.8])
-      .tickSize((props.width - props.axisMarginLeft - props.axisMarginRight) * -1, -6);
+      .tickSize((props.width - props.axisMarginLeft - props.axisMarginRight) * -1);
 
     this.axisRight
       .ticks(0)
@@ -57,7 +57,17 @@ class Axis extends Component {
           className="axis"
           transform={translateLeft}
           ref={node => (this.nodeLeft = node)}
-        />
+        >
+          <g>
+            <text
+              textAnchor="middle"
+              x={(this.props.width - this.props.axisMarginLeft - this.props.axisMarginRight) / 2}
+              y={28}
+            >
+              EQUALITY
+            </text>
+          </g>
+        </g>
         <g
           className="axis"
           transform={translateRight}

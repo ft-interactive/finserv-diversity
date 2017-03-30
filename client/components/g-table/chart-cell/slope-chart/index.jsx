@@ -34,7 +34,8 @@ class SlopeChart extends Component {
 
   render() {
     const translate = `translate(${this.props.marginLeft}, ${this.props.marginTop})`;
-    const slopes = this.state.series.map((d, i) => {
+    let slopes = [];
+    slopes = this.state.series.map((d, i) => {
       const key = `slope${i}`;
 
       if (!isNaN(d[0]) && !isNaN(d[1])) {
@@ -66,20 +67,31 @@ class SlopeChart extends Component {
 
       return null;
     });
-    let slopeChart = null;
+    let slopeChart = (
+      <g>
+        <text
+          textAnchor="middle"
+          x={this.props.width / 2}
+          y={22}
+        >
+          Loading chart…
+        </text>
+      </g>
+    );
 
     if (slopes.length > 0) {
-      slopeChart = slopes;
-    } else {
       slopeChart = (
         <g>
-          <text
-            textAnchor="middle"
-            x={this.props.width / 2}
-            y={this.props.height / 2}
-          >
-            Loading chart…
-          </text>
+          <Axis
+            width={this.props.width}
+            height={this.height}
+            axisMarginTop={this.props.marginTop}
+            axisMarginLeft={this.props.marginLeft + this.circleRadius + 20}
+            axisMarginRight={this.props.marginRight + this.circleRadius + 20}
+            domain={[0, 0.8]}
+            range={[this.height, 0]}
+          />
+          {slopes}
         </g>
       );
     }
@@ -89,15 +101,6 @@ class SlopeChart extends Component {
         width={this.props.width}
         height={this.props.height}
       >
-        <Axis
-          width={this.props.width}
-          height={this.height}
-          axisMarginTop={this.props.marginTop}
-          axisMarginLeft={this.props.marginLeft + this.circleRadius + 20}
-          axisMarginRight={this.props.marginRight + this.circleRadius + 20}
-          domain={[0, 0.8]}
-          range={[this.height, 0]}
-        />
         {slopeChart}
       </svg>
     );
