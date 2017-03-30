@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Table, Column, Cell } from 'fixed-data-table';
 import throttle from 'lodash/throttle';
 import ChartCell from './chart-cell/index.jsx';
+import TouchExampleWrapper from './TouchExampleWrapper';
 
 function TextCell(props) {
   const value = props.data[props.rowIndex][props.field];
@@ -160,140 +161,145 @@ class GTable extends Component {
           </div>
         </div>
 
-        <Table
-          rowsCount={this.state.data.length}
-          rowHeight={100}
-          width={this.state.tableWidth}
-          height={395}
-          headerHeight={50}
-          touchScrollEnabled
+        <TouchExampleWrapper
+          tableWidth={this.state.tableWidth}
+          tableHeight={395}
         >
-          <Column
-            header={
-              <SortHeaderCell
-                field="bank"
-                value="Bank/insurer"
-                sortData={this.handleSortChange}
-                currentSortField={this.state.sortField}
-              />
-            }
-            cell={
-              <TextCell
-                data={this.state.data}
-                field="bank"
-              />
-            }
-            fixed
-            width={161}
-            flexGrow={1}
-          />
+          <Table
+            rowsCount={this.state.data.length}
+            rowHeight={100}
+            width={this.state.tableWidth}
+            // height={395}
+            headerHeight={50}
+            touchScrollEnabled
+          >
+            <Column
+              header={
+                <SortHeaderCell
+                  field="bank"
+                  value="Bank/insurer"
+                  sortData={this.handleSortChange}
+                  currentSortField={this.state.sortField}
+                />
+              }
+              cell={
+                <TextCell
+                  data={this.state.data}
+                  field="bank"
+                />
+              }
+              fixed
+              width={161}
+              flexGrow={1}
+            />
 
-          <Column
-            header={
-              <Cell className="chart-cell-header">
-                <div className="title">Change 2014-2016</div>
-                <div className="legend">
-                  <div className="legend-bar legend-bar-jr" /><span className="legend-text">Junior</span>
-                  <div className="legend-bar legend-bar-mid" /><span className="legend-text">Mid</span>
-                  <div className="legend-bar legend-bar-sr" /><span className="legend-text">Senior</span>
-                </div>
-              </Cell>}
-            cell={
-              <ChartCell
-                data={this.state.data}
-              />
-            }
-            width={135}
-          />
+            <Column
+              header={
+                <Cell className="chart-cell-header">
+                  <div className="title">Change 2014-2016</div>
+                  <div className="legend">
+                    <div className="legend-bar legend-bar-jr" /><span className="legend-text">Junior</span>
+                    <div className="legend-bar legend-bar-mid" /><span className="legend-text">Mid</span>
+                    <div className="legend-bar legend-bar-sr" /><span className="legend-text">Senior</span>
+                  </div>
+                </Cell>}
+              cell={
+                <ChartCell
+                  data={this.state.data}
+                />
+              }
+              width={135}
+            />
 
-          <Column
-            header={<Cell>Sector</Cell>}
-            cell={
-              <TextCell
-                data={this.state.data}
-                field="sector"
-                style={{ textTransform: 'capitalize' }}
-              />
-            }
-            width={142}
-          />
+            <Column
+              header={<Cell>Sector</Cell>}
+              cell={
+                <TextCell
+                  data={this.state.data}
+                  field="sector"
+                  style={{ textTransform: 'capitalize' }}
+                />
+              }
+              width={142}
+            />
 
-          <Column
-            header={
-              <SortHeaderCell
-                field="womentotal2016"
-                value="2016 total women"
-                sortData={this.handleSortChange}
-                currentSortField={this.state.sortField}
-              />
-            }
-            cell={
-              <PercentageCell
-                data={this.state.data}
-                field="womentotal2016"
-              />
-            }
-            width={145}
-            flexGrow={1}
-          />
+            <Column
+              header={
+                <SortHeaderCell
+                  field="womentotal2016"
+                  value="2016 total women"
+                  sortData={this.handleSortChange}
+                  currentSortField={this.state.sortField}
+                />
+              }
+              cell={
+                <PercentageCell
+                  data={this.state.data}
+                  field="womentotal2016"
+                />
+              }
+              width={145}
+              flexGrow={1}
+            />
 
-          <Column
-            header={
-              <SortHeaderCell
-                field="womenjr2016"
-                value="2016 junior women"
-                sortData={this.handleSortChange}
-                currentSortField={this.state.sortField}
-              />
-            }
-            cell={
-              <PercentageCell
-                data={this.state.data}
-                field="womenjr2016"
-              />
-            }
-            width={153}
-            flexGrow={1}
-          />
+            <Column
+              header={
+                <SortHeaderCell
+                  field="womenjr2016"
+                  value="2016 junior women"
+                  sortData={this.handleSortChange}
+                  currentSortField={this.state.sortField}
+                />
+              }
+              cell={
+                <PercentageCell
+                  data={this.state.data}
+                  field="womenjr2016"
+                />
+              }
+              width={153}
+              flexGrow={1}
+            />
 
-          <Column
-            header={
-              <SortHeaderCell
-                field="womenmid2016"
-                value="2016 middle women"
-                sortData={this.handleSortChange}
-                currentSortField={this.state.sortField}
-              />
-            }
-            cell={
-              <PercentageCell
-                data={this.state.data}
-                field="womenmid2016"
-              />
-            }
-            width={159}
-            flexGrow={1}
-          />
+            <Column
+              header={
+                <SortHeaderCell
+                  field="womenmid2016"
+                  value="2016 middle women"
+                  sortData={this.handleSortChange}
+                  currentSortField={this.state.sortField}
+                />
+              }
+              cell={
+                <PercentageCell
+                  data={this.state.data}
+                  field="womenmid2016"
+                />
+              }
+              width={159}
+              flexGrow={1}
+            />
 
-          <Column
-            header={
-              <SortHeaderCell
-                field="womensr2016"
-                value="2016 senior women"
-                sortData={this.handleSortChange}
-                currentSortField={this.state.sortField}
-              />
-            }
-            cell={
-              <PercentageCell
-                data={this.state.data}
-                field="womensr2016"
-              />
-            }
-            width={155}
-            flexGrow={1}
-          />
-        </Table>
+            <Column
+              header={
+                <SortHeaderCell
+                  field="womensr2016"
+                  value="2016 senior women"
+                  sortData={this.handleSortChange}
+                  currentSortField={this.state.sortField}
+                />
+              }
+              cell={
+                <PercentageCell
+                  data={this.state.data}
+                  field="womensr2016"
+                />
+              }
+              width={155}
+              flexGrow={1}
+            />
+          </Table>
+        </TouchExampleWrapper>
       </div>
     );
   }
