@@ -148,11 +148,11 @@ class GTable extends Component {
         <div className="o-grid-container">
           <div className="o-grid-row">
             <div data-o-grid-colspan="12 S11 Scenter M9 L8 XL7">
-              <div className="input-label">Input label</div>
+              <div className="input-label">Filter by bank/insurer</div>
 
               <input
                 onChange={this.handleFilterChange}
-                placeholder="Filter by bank/insurer name"
+                placeholder="Start typing a bank/insurer name"
               />
 
               <i className="icon-plus" />
@@ -188,7 +188,15 @@ class GTable extends Component {
           />
 
           <Column
-            header={<Cell>Change 2014-2016</Cell>}
+            header={
+              <Cell className="chart-cell-header">
+                <div className="title">Change 2014-2016</div>
+                <div className="legend">
+                  <div className="legend-bar legend-bar-jr" /><span className="legend-text">Junior</span>
+                  <div className="legend-bar legend-bar-mid" /><span className="legend-text">Mid</span>
+                  <div className="legend-bar legend-bar-sr" /><span className="legend-text">Senior</span>
+                </div>
+              </Cell>}
             cell={
               <ChartCell
                 data={this.state.data}

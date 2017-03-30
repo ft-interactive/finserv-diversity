@@ -5,3 +5,16 @@
     padding: 0;
   }
 }
+
+.chart-cell-header {
+  div.public_fixedDataTableCell_cellContent {
+    padding: 0;
+  }
+  div.title {
+    padding: 15px 8px 0 8px;
+  }
+  div.legend {
+    margin-top: -4px;
+    padding: 0 8px;
+  }
+}
