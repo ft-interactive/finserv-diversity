@@ -166,6 +166,7 @@ class GTable extends Component {
           width={this.state.tableWidth}
           height={395}
           headerHeight={50}
+          touchScrollEnabled
         >
           <Column
             header={
