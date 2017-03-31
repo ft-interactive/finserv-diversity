@@ -11,10 +11,10 @@ export default () => ({ // eslint-disable-line
   //       new Date('2016-05-17T17:11:22Z')
   publishedDate: new Date('2017-04-02T18:00:00Z'),
 
-  headline: 'Management’s missing women',
+  headline: 'Women vastly outnumbered by men as they climb the corporate ranks',
 
   // summary === standfirst (Summary is what the content API calls it)
-  summary: 'TK STANDFIRST TK',
+  summary: 'The vast efforts made by the financials sector fail to close the gender gap',
 
   topic: {
     name: 'Financial Services',
@@ -22,14 +22,14 @@ export default () => ({ // eslint-disable-line
   },
 
   relatedArticle: {
-    text: 'Related article »',
-    url: 'https://en.wikipedia.org/wiki/Politics_and_the_English_Language',
+    text: '',
+    url: '',
   },
 
   mainImage: {
     title: '',
     description: '',
-    url: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3Ac4bf0be4-7c15-11e4-a7b8-00144feabdc0?source=ig&width=2048&height=1152',
+    url: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3Ab9ba1b1a-1634-11e7-b0c1-37e417ee6c76?source=ig&width=2048&height=1152',
     width: 2048, // ensure correct width
     height: 1152, // ensure correct height
   },
@@ -63,19 +63,19 @@ export default () => ({ // eslint-disable-line
         optional social meta data?
   */
   // General social
-  // socialImage: '',
-  // socialHeadline: '',
-  // socialSummary:  '',
+   socialImage: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3Ab9ba1b1a-1634-11e7-b0c1-37e417ee6c76?source=ig&width=1400',
+   socialHeadline: '',
+   socialSummary:  'financial services',
 
   // TWITTER
-  // twitterImage: '',
-  // twitterCreator: '@individual's_account',
-  // tweetText:  '',
-  // twitterHeadline:  '',
+   twitterImage: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3Ab9ba1b1a-1634-11e7-b0c1-37e417ee6c76?source=ig&width=1400',
+   twitterCreator: '@ft',
+   tweetText:  'How successful are efforts to narrow the financial services industry’s gender gap? We gathered the data to find out.',
+  twitterHeadline:  'Finance’s missing women',
 
   // FACEBOOK
-  // facebookImage: '',
-  // facebookHeadline: '',
+   facebookImage: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3Ab9ba1b1a-1634-11e7-b0c1-37e417ee6c76?source=ig&width=1400',
+   facebookHeadline: 'How are financial services firms doing on gender equality?',
 
   tracking: {
 
