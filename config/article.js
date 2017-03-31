@@ -14,7 +14,7 @@ export default () => ({ // eslint-disable-line
   headline: 'Women vastly outnumbered by men as they climb the corporate ranks',
 
   // summary === standfirst (Summary is what the content API calls it)
-  summary: 'The vast efforts made by the financials sector fail to close the gender gap',
+  summary: 'Huge efforts made by the financial sector fail to close the gender gap',
 
   topic: {
     name: 'Financial Services',
