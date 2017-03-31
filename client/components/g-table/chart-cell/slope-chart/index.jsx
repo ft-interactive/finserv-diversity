@@ -14,12 +14,15 @@ class SlopeChart extends Component {
     this.yScale = d3.scale.linear();
     this.circleRadius = 4;
     this.updateD3 = this.updateD3.bind(this);
+
+    this.updateD3(props);
   }
 
   componentWillReceiveProps(newProps) {
     this.setState({
       series: newProps.series,
     });
+
     this.updateD3(newProps);
   }
 
@@ -34,7 +37,9 @@ class SlopeChart extends Component {
 
   render() {
     const translate = `translate(${this.props.marginLeft}, ${this.props.marginTop})`;
-    let slopes = [];
+    let slopes = null;
+    let slopeChart = null;
+
     slopes = this.state.series.map((d, i) => {
       const key = `slope${i}`;
 
@@ -67,19 +72,20 @@ class SlopeChart extends Component {
 
       return null;
     });
-    let slopeChart = (
-      <g>
-        <text
-          textAnchor="middle"
-          x={this.props.width / 2}
-          y={22}
-        >
-          Loading chart…
-        </text>
-      </g>
-    );
 
-    if (slopes.length > 0) {
+    if (!slopes.length) {
+      slopeChart = (
+        <g>
+          <text
+            textAnchor="middle"
+            x={this.props.width / 2}
+            y={22}
+          >
+            Loading chart…
+          </text>
+        </g>
+      );
+    } else {
       slopeChart = (
         <g>
           <Axis

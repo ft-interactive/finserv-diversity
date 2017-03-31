@@ -12,11 +12,6 @@ div {
   &.table-container {
     max-width: 1220px !important;
     padding: 0 1em !important;
-    @media screen and (-webkit-min-device-pixel-ratio:0) {
-      input[type='text'] {
-        font-size: 16px;
-      }
-    }
   }
 }
 
@@ -39,3 +34,16 @@ div {
     }
   }
 }
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  input[type='text'] {
+    font-size: 16px;
+  }
+}
+
+h2.o-typography-subhead--crosshead {
+  margin-top: 50px !important;
+  margin-bottom: 20px !important;
+  padding: 0 !important;
+}
+
