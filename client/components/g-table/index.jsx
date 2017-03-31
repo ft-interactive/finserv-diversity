@@ -411,9 +411,7 @@ class GTable extends Component {
                   htmlFor="institution"
                   className="o-forms__label"
                 >
-                  <br />
-                  OR<br />
-                  <br />
+                  <span className="or">—OR—</span>
                   Filter by institution
                 </label>
 
