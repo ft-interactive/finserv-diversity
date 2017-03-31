@@ -170,7 +170,7 @@ class GTable extends Component {
         header={
           <SortHeaderCell
             field="bank"
-            value="Bank/insurer"
+            value="Institution"
             sortData={this.handleSortChange}
             currentSortField={this.state.sortField}
           />

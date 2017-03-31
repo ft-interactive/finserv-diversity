@@ -11,7 +11,7 @@ export default async () => {
   const flags = await getFlags();
   const onwardJourney = await getOnwardJourney();
   const berthaId = '1Z4GFsSPGVYAY1Y04qWWO-ZnkH5jnNOpUF6MGwiDyp6E';
-  const endpoint = `http://bertha.ig.ft.com/view/publish/gss/${berthaId}/data`;
+  const endpoint = `https://bertha.ig.ft.com/view/publish/gss/${berthaId}/data`;
   const res = await axios(endpoint);
   const berthaData = res.data;
   let table;
