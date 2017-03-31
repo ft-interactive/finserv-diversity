@@ -16,11 +16,11 @@ export default async () => {
   const berthaData = res.data;
   let table;
 
-  try {
-    table = ReactDOMServer.renderToString(<GTable data={berthaData} />);
-  } catch (e) {
-    console.log('Error pre-rendering React:', e);
-  }
+  // try {
+  //   table = ReactDOMServer.renderToString(<GTable data={berthaData} />);
+  // } catch (e) {
+  //   console.log('Error pre-rendering React:', e);
+  // }
 
   /*
   An experimental demo that gets content from the API
