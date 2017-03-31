@@ -12,17 +12,14 @@ export default async () => {
   const onwardJourney = await getOnwardJourney();
   const berthaId = '1Z4GFsSPGVYAY1Y04qWWO-ZnkH5jnNOpUF6MGwiDyp6E';
   const endpoint = `http://bertha.ig.ft.com/view/publish/gss/${berthaId}/data`;
-  let berthaData;
+  const res = await axios(endpoint);
+  const berthaData = res.data;
   let table;
 
   try {
-    const res = await axios(endpoint);
-
-    berthaData = res.data;
-
     table = ReactDOMServer.renderToString(<GTable data={berthaData} />);
   } catch (e) {
-    console.log('Error getting content from Bertha:', e);
+    console.log('Error pre-rendering React:', e);
   }
 
   /*
