@@ -14,6 +14,8 @@ class Axis extends Component {
       .scale(this.yScale)
       .orient('right');
     this.updateD3 = this.updateD3.bind(this);
+
+    this.updateD3(props);
   }
 
   componentDidMount() { this.renderAxis(); }
@@ -21,6 +23,7 @@ class Axis extends Component {
   componentWillReceiveProps(newProps) {
     this.updateD3(newProps);
   }
+
   componentDidUpdate() { this.renderAxis(); }
 
   updateD3(props) {
