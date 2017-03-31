@@ -1,29 +1,22 @@
 @import "o-icons/main";
 @import "chart-cell/main";
+@import 'o-forms/main';
+
+@include oForms;
 
 $o-icons-is-silent: false;
 
-input {
-  display: block;
-  box-sizing: border-box;
-  width: 100%;
-  height: 36px;
-  margin: 0 auto 20px;
-  border: 1px solid #c1b8b4;
-  border-radius: 3px;
-  padding: 8px;
+@media screen and (max-width: 413px) {
+  div .input-container {
+    padding: 0;
+  }
 }
 
-.input-label {
-  width: 100%;
-  margin-bottom: 12px;
-  text-align: center;
-  font-family: $font-sans;
-  font-size: 22px;
-  color: #505050;
+div.fixedDataTableCellLayout_main {
+  border-bottom: 1px solid #c1b8b4 !important;
 }
 
-.sort-header {
+div.sort-header {
   width: 100%;
   height: inherit;
   cursor: pointer;
@@ -37,28 +30,30 @@ input {
   }
 }
 
-div.legend-bar {
-  display: inline-block;
-  width: 10px;
-  height: 2px;
-  margin-bottom: 2px;
-  margin-right: 2px;
-  opacity: 0.8;
-  &-jr {
-    background-color: #af516c;
+div.legend {
+  margin-top: -5px !important;
+  div.legend-bar {
+    display: inline-block;
+    width: 10px;
+    height: 2px;
+    margin-bottom: 2px;
+    margin-right: 2px;
+    opacity: 0.8;
+    &-jr {
+      background-color: #af516c;
+    }
+    &-mid {
+      background-color: #ecafaf;
+    }
+    &-sr {
+      background-color: #d7706c;
+    }
   }
-  &-mid {
-    background-color: #ecafaf;
+  span.legend-text {
+    margin-right: 4px;
+    font-size: 10px;
+    font-weight: 400;
   }
-  &-sr {
-    background-color: #d7706c;
-  }
-}
-
-span.legend-text {
-  margin-right: 4px;
-  font-size: 10px;
-  font-weight: 400;
 }
 
 /**

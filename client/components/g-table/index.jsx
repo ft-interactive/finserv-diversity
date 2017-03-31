@@ -31,7 +31,11 @@ function PercentageCell(props) {
     return <Cell><em>-</em></Cell>;
   }
 
-  return <Cell>{(value * 100).toFixed(1)}%</Cell>;
+  return (
+    <Cell style={{ width: '100%', textAlign: 'right' }}>
+      {(value * 100).toFixed(1)}
+    </Cell>
+  );
 }
 
 class SortHeaderCell extends Component {
@@ -77,6 +81,7 @@ class GTable extends Component {
 
     this.state = {
       data: props.data,
+      pageWidth: 0,
       tableWidth: 0,
       tableHeight: 0,
       sortField: null,
@@ -93,23 +98,23 @@ class GTable extends Component {
   }
 
   handleResize() {
+    const height = document.documentElement.clientHeight - 159 > 600 ?
+      600 :
+      document.documentElement.clientHeight - 159;
+
     this.setState({
+      pageWidth: Math.max(document.documentElement.clientWidth, window.innerWidth || 0),
       tableWidth: this.node.offsetWidth,
-      tableHeight: Math.max(document.documentElement.clientHeight, window.innerHeight || 0) - 159,
+      tableHeight: height,
     });
 
-    // console.log(this.state.tableWidth, this.state.tableHeight);
+    // console.log(this.state.tableHeight);
   }
 
   handleFilterChange(element) {
     const filterTerm = element.target.value.toLowerCase();
-    const filteredData = [];
-
-    for (const d of this.props.data) { // eslint-disable-line
-      if (d.bank.toLowerCase().indexOf(filterTerm) !== -1) {
-        filteredData.push(d);
-      }
-    }
+    const filteredData = this.props.data
+      .filter(d => d.bank.toLowerCase().indexOf(filterTerm) !== -1);
 
     this.setState({ data: filteredData });
   }
@@ -148,20 +153,170 @@ class GTable extends Component {
   }
 
   render() {
+    let column1 = null;
+    let column2 = null;
+    let column3 = null;
+    let column4 = null;
+    let column5 = null;
+    let column6 = null;
+
+    column1 = (
+      <Column
+        header={
+          <SortHeaderCell
+            field="bank"
+            value="Institution"
+            sortData={this.handleSortChange}
+            currentSortField={this.state.sortField}
+          />
+        }
+        cell={
+          <TextCell
+            data={this.state.data}
+            field="bank"
+          />
+        }
+        width={151}
+        flexGrow={1}
+      />
+    );
+
+    column2 = (
+      <Column
+        header={
+          <Cell className="chart-cell-header">
+            <div className="title">Change 2014-16</div>
+            <div className="legend">
+              <div className="legend-bar legend-bar-jr" />
+              <span className="legend-text">Junior</span>
+              <div className="legend-bar legend-bar-mid" />
+              <span className="legend-text">Mid</span>
+              <div className="legend-bar legend-bar-sr" />
+              <span className="legend-text">Senior</span>
+            </div>
+          </Cell>}
+        cell={
+          <ChartCell
+            data={this.state.data}
+          />
+        }
+        width={130}
+      />
+    );
+
+    if (this.state.pageWidth >= 568) {
+      column3 = (
+        <Column
+          header={
+            <SortHeaderCell
+              field="womentotal2016"
+              value="Women total 2016 (%)"
+              sortData={this.handleSortChange}
+              currentSortField={this.state.sortField}
+            />
+          }
+          cell={
+            <PercentageCell
+              data={this.state.data}
+              field="womentotal2016"
+            />
+          }
+          width={158}
+          flexGrow={1}
+        />
+      );
+    }
+
+    if (this.state.pageWidth > 768) {
+      column4 = (
+        <Column
+          header={
+            <SortHeaderCell
+              field="womenjr2016"
+              value="Women junior 2016 (%)"
+              sortData={this.handleSortChange}
+              currentSortField={this.state.sortField}
+            />
+          }
+          cell={
+            <PercentageCell
+              data={this.state.data}
+              field="womenjr2016"
+            />
+          }
+          width={165}
+          flexGrow={1}
+        />
+      );
+    }
+
+    if (this.state.pageWidth >= 667) {
+      column5 = (
+        <Column
+          header={
+            <SortHeaderCell
+              field="womenmid2016"
+              value="Women mid 2016 (%)"
+              sortData={this.handleSortChange}
+              currentSortField={this.state.sortField}
+            />
+          }
+          cell={
+            <PercentageCell
+              data={this.state.data}
+              field="womenmid2016"
+            />
+          }
+          width={152}
+          flexGrow={1}
+        />
+      );
+    }
+
+    if (this.state.pageWidth > 768) {
+      column6 = (
+        <Column
+          header={
+            <SortHeaderCell
+              field="womensr2016"
+              value="Women senior 2016 (%)"
+              sortData={this.handleSortChange}
+              currentSortField={this.state.sortField}
+            />
+          }
+          cell={
+            <PercentageCell
+              data={this.state.data}
+              field="womensr2016"
+            />
+          }
+          width={167}
+          flexGrow={1}
+        />
+      );
+    }
+
     return (
       <div ref={(node) => { this.node = node; }}>
-        <div className="o-grid-container">
+        <div className="o-grid-container input-container">
           <div className="o-grid-row">
             <div data-o-grid-colspan="12 S11 Scenter M9 L8 XL7">
-              <div className="input-label">Filter by bank/insurer</div>
+              <div className="o-forms o-forms--wide">
+                <label
+                  htmlFor="o-forms-full"
+                  className="o-forms__label"
+                >
+                  Filter by institution
+                </label>
 
-              <input
-                type="text"
-                onChange={this.handleFilterChange}
-                placeholder="Start typing a bank/insurer name"
-              />
-
-              <i className="icon-plus" />
+                <input
+                  type="text"
+                  onChange={this.handleFilterChange}
+                  placeholder="Start typing an institution name"
+                  id="o-forms-full"
+                  className="o-forms__text o-forms__text--valid"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -178,134 +333,12 @@ class GTable extends Component {
             headerHeight={50}
             touchScrollEnabled
           >
-            <Column
-              header={
-                <SortHeaderCell
-                  field="bank"
-                  value="Bank/insurer"
-                  sortData={this.handleSortChange}
-                  currentSortField={this.state.sortField}
-                />
-              }
-              cell={
-                <TextCell
-                  data={this.state.data}
-                  field="bank"
-                />
-              }
-              fixed
-              width={161}
-              flexGrow={1}
-            />
-
-            <Column
-              header={
-                <Cell className="chart-cell-header">
-                  <div className="title">Change 2014-2016</div>
-                  <div className="legend">
-                    <div className="legend-bar legend-bar-jr" />
-                    <span className="legend-text">Junior</span>
-                    <div className="legend-bar legend-bar-mid" />
-                    <span className="legend-text">Mid</span>
-                    <div className="legend-bar legend-bar-sr" />
-                    <span className="legend-text">Senior</span>
-                  </div>
-                </Cell>}
-              cell={
-                <ChartCell
-                  data={this.state.data}
-                />
-              }
-              width={135}
-            />
-
-            <Column
-              header={<Cell>Sector</Cell>}
-              cell={
-                <TextCell
-                  data={this.state.data}
-                  field="sector"
-                  style={{ textTransform: 'capitalize' }}
-                />
-              }
-              width={142}
-            />
-
-            <Column
-              header={
-                <SortHeaderCell
-                  field="womentotal2016"
-                  value="2016 total women"
-                  sortData={this.handleSortChange}
-                  currentSortField={this.state.sortField}
-                />
-              }
-              cell={
-                <PercentageCell
-                  data={this.state.data}
-                  field="womentotal2016"
-                />
-              }
-              width={145}
-              flexGrow={1}
-            />
-
-            <Column
-              header={
-                <SortHeaderCell
-                  field="womenjr2016"
-                  value="2016 junior women"
-                  sortData={this.handleSortChange}
-                  currentSortField={this.state.sortField}
-                />
-              }
-              cell={
-                <PercentageCell
-                  data={this.state.data}
-                  field="womenjr2016"
-                />
-              }
-              width={153}
-              flexGrow={1}
-            />
-
-            <Column
-              header={
-                <SortHeaderCell
-                  field="womenmid2016"
-                  value="2016 middle women"
-                  sortData={this.handleSortChange}
-                  currentSortField={this.state.sortField}
-                />
-              }
-              cell={
-                <PercentageCell
-                  data={this.state.data}
-                  field="womenmid2016"
-                />
-              }
-              width={159}
-              flexGrow={1}
-            />
-
-            <Column
-              header={
-                <SortHeaderCell
-                  field="womensr2016"
-                  value="2016 senior women"
-                  sortData={this.handleSortChange}
-                  currentSortField={this.state.sortField}
-                />
-              }
-              cell={
-                <PercentageCell
-                  data={this.state.data}
-                  field="womensr2016"
-                />
-              }
-              width={155}
-              flexGrow={1}
-            />
+            {column1}
+            {column2}
+            {column3}
+            {column4}
+            {column5}
+            {column6}
           </Table>
         </TouchExampleWrapper>
       </div>
@@ -340,6 +373,7 @@ PercentageCell.propTypes = {
   data: React.PropTypes.array, // eslint-disable-line
   rowIndex: React.PropTypes.number,
   field: React.PropTypes.string,
+  style: React.PropTypes.object, // eslint-disable-line
 };
 
 PercentageCell.defaultProps = {
