@@ -113,13 +113,8 @@ class GTable extends Component {
 
   handleFilterChange(element) {
     const filterTerm = element.target.value.toLowerCase();
-    const filteredData = [];
-
-    for (const d of this.props.data) { // eslint-disable-line
-      if (d.bank.toLowerCase().indexOf(filterTerm) !== -1) {
-        filteredData.push(d);
-      }
-    }
+    const filteredData = this.props.data
+      .filter(d => d.bank.toLowerCase().indexOf(filterTerm) !== -1);
 
     this.setState({ data: filteredData });
   }
