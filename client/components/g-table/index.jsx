@@ -31,7 +31,11 @@ function PercentageCell(props) {
     return <Cell><em>-</em></Cell>;
   }
 
-  return <Cell style={{ width: '100%', textAlign: 'right' }}>{(value * 100).toFixed(1)}</Cell>;
+  return (
+    <Cell style={{ width: '100%', textAlign: 'right' }}>
+      {(value * 100).toFixed(1)}
+    </Cell>
+  );
 }
 
 class SortHeaderCell extends Component {
@@ -251,7 +255,7 @@ class GTable extends Component {
       );
     }
 
-    if (this.state.pageWidth >= 568) {
+    if (this.state.pageWidth >= 667) {
       column5 = (
         <Column
           header={
@@ -299,15 +303,15 @@ class GTable extends Component {
 
     return (
       <div ref={(node) => { this.node = node; }}>
-        <div className="o-grid-container">
+        <div className="o-grid-container input-container">
           <div className="o-grid-row">
             <div data-o-grid-colspan="12 S11 Scenter M9 L8 XL7">
-              <div className="input-label">Filter by bank/insurer</div>
+              <div className="input-label">Filter by institution</div>
 
               <input
                 type="text"
                 onChange={this.handleFilterChange}
-                placeholder="Start typing a bank/insurer name"
+                placeholder="Start typing an institution name"
               />
 
               <i className="icon-plus" />
