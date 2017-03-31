@@ -3,7 +3,7 @@
 
 $o-icons-is-silent: false;
 
-div .input-container {
+div.input-container {
   .input-label {
     width: 100%;
     margin-bottom: 12px;
@@ -33,7 +33,7 @@ div.fixedDataTableCellLayout_main {
   border-bottom: 1px solid #c1b8b4 !important;
 }
 
-.sort-header {
+div.sort-header {
   width: 100%;
   height: inherit;
   cursor: pointer;
@@ -47,28 +47,30 @@ div.fixedDataTableCellLayout_main {
   }
 }
 
-div.legend-bar {
-  display: inline-block;
-  width: 10px;
-  height: 2px;
-  margin-bottom: 2px;
-  margin-right: 2px;
-  opacity: 0.8;
-  &-jr {
-    background-color: #af516c;
+div.legend {
+  margin-top: -5px !important;
+  div.legend-bar {
+    display: inline-block;
+    width: 10px;
+    height: 2px;
+    margin-bottom: 2px;
+    margin-right: 2px;
+    opacity: 0.8;
+    &-jr {
+      background-color: #af516c;
+    }
+    &-mid {
+      background-color: #ecafaf;
+    }
+    &-sr {
+      background-color: #d7706c;
+    }
   }
-  &-mid {
-    background-color: #ecafaf;
+  span.legend-text {
+    margin-right: 4px;
+    font-size: 10px;
+    font-weight: 400;
   }
-  &-sr {
-    background-color: #d7706c;
-  }
-}
-
-span.legend-text {
-  margin-right: 4px;
-  font-size: 10px;
-  font-weight: 400;
 }
 
 /**
