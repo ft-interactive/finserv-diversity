@@ -1,2 +1,12 @@
 env:
   browser: true
+parserOptions:
+  ecmaFeatures:
+    jsx: true
+rules:
+  react/jsx-filename-extension:
+    - 1
+    - extensions:
+      - .js
+      - .jsx
+  react/no-multi-comp: 1

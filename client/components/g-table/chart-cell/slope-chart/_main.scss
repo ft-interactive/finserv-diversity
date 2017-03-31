@@ -1,0 +1,51 @@
+g.slope {
+  &.slope-j {
+    opacity: 0.8;
+    line {
+      stroke: #af516c;
+      stroke-width: 2px;
+    }
+    circle {
+      fill: #af516c;
+    }
+  }
+  &.slope-m {
+    opacity: 0.8;
+    line {
+      stroke: #ecafaf;
+      stroke-width: 2px;
+    }
+    circle {
+      fill: #ecafaf;
+    }
+  }
+  &.slope-s {
+    opacity: 0.8;
+    line {
+      stroke: #d7706c;
+      stroke-width: 2px;
+    }
+    circle {
+      fill: #d7706c;
+    }
+  }
+}
+g.axis {
+  path, line {
+    fill: none;
+    stroke-width: 2px;
+    shape-rendering: crispEdges;
+  }
+  line {
+    stroke: #c3bcb0;
+    stroke-width: 1px;
+    stroke-dasharray: 6, 100;
+    &.equality {
+      stroke-dasharray: 0;
+    }
+  }
+  text {
+    fill: #6b6e68;
+    font-size: 10px;
+  }
+}

@@ -1,25 +1,24 @@
 export default () => ({ // eslint-disable-line
 
   // link file UUID
-  id: '5729f162-0e2a-11e7-b030-768954394623',
+  id: '41d3ef6c-1469-11e7-80f4-13e067d5072c',
 
   // canonical URL of the published page
-  // https://ig.ft.com/finserve-diversity get filled in by the ./configure script
-  url: 'https://ig.ft.com/finserve-diversity',
+  // https://ig.ft.com/finserv-diversity get filled in by the ./configure script
+  url: 'https://ig.ft.com/managements-missing-women-data',
 
   // To set an exact publish date do this:
   //       new Date('2016-05-17T17:11:22Z')
-  publishedDate: new Date(),
+  publishedDate: new Date('2017-04-03T05:30:00Z'),
 
-  headline: 'Politics and the English Language',
+  headline: 'Management\'s missing women',
 
   // summary === standfirst (Summary is what the content API calls it)
-  summary: 'Political language is designed to make lies sound truthful' +
-           'and murder respectable, and to give an appearance of solidity to pure wind',
+  summary: 'TK STANDFIRST TK',
 
   topic: {
-    name: 'Starter Kit',
-    url: '/foo',
+    name: 'Financial Services',
+    url: 'https://www.ft.com/companies/financial-services',
   },
 
   relatedArticle: {
@@ -30,7 +29,7 @@ export default () => ({ // eslint-disable-line
   mainImage: {
     title: '',
     description: '',
-    url: '',
+    url: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3Ac4bf0be4-7c15-11e4-a7b8-00144feabdc0?source=ig&width=2048&height=1152',
     width: 2048, // ensure correct width
     height: 1152, // ensure correct height
   },
@@ -38,15 +37,17 @@ export default () => ({ // eslint-disable-line
   // Byline can by a plain string, markdown, or array of authors
   // if array of authors, url is optional
   byline: [
-    { name: 'Author One', url: '/foo/bar' },
-    { name: 'Author Two' },
+    { name: 'Laura Noonan', url: 'https://www.ft.com/stream/authorsId/Q0ItTE41Njc4OQ==-QXV0aG9ycw==' },
+    { name: 'Alan Smith', url: 'https://www.ft.com/alan-smith' },
+    { name: 'David Blood', url: 'https://www.ft.com/david-blood' },
+    { name: 'Martin Stabe', url: 'https://www.ft.com/martin-stabe' },
   ],
 
   // Appears in the HTML <title>
   title: '',
 
   // meta data
-  description: '',
+  description: 'description',
 
   /*
   TODO: Select Twitter card type -

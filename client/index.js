@@ -1,19 +1,15 @@
-/*
-  TODO: delete this comment
+import React from 'react';
+import ReactDOM from 'react-dom';
+import GTable from './components/g-table/index.jsx';
 
-  This file is where you bootstrap your JS code
-  For example import stuff here:
+function App() {
+  const data = JSON.parse(document.getElementById('table-data').textContent);
 
-  import {select} from 'd3-selection';
-  import myComponent from './components/my-component';
+  return (
+    <GTable data={data} />
+  );
+}
 
-  Split logical parts of you project into components e.g.
+const reactApp = <App />;
 
-  /client
-    - /components
-        - /component-name
-            - styles.scss
-            - index.js
-            - template.html
-
-*/
+ReactDOM.render(reactApp, document.getElementById('table'));

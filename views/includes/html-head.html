@@ -30,6 +30,8 @@
 <meta name="robots" content="index,follow">
 <meta name="copyright" content="Financial Times">
 <meta name="theme-color" content="#fff1e0" />
+<script src="https://cdn.rawgit.com/zynga/scroller/master/src/Animate.js"></script>
+<script src="https://cdn.rawgit.com/zynga/scroller/master/src/Scroller.js"></script>
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
@@ -62,6 +64,7 @@
 </script>
 <script async src="https://origami-build.ft.com/v2/bundles/js?export=oErrors&modules=o-errors@^3.5.1"></script>
 {%- endif -%}
+{{ berthaData | jsonScriptElement('table-data') }}
 
 <title>{{ title | default(headline, true) }} &mdash; FT.com</title>
 <meta name="twitter:title" content="{{ twitterHeadline | default(socialHeadline) | default(headline, true) }}">

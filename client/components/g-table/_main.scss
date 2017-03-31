@@ -1,0 +1,220 @@
+@import "o-icons/main";
+@import "chart-cell/main";
+
+$o-icons-is-silent: false;
+
+div.input-container {
+  .input-label {
+    width: 100%;
+    margin-bottom: 12px;
+    text-align: center;
+    font-family: $font-sans;
+    font-size: 24px;
+  }
+  input {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 36px;
+    margin: 0 auto 20px;
+    border: 1px solid #c1b8b4;
+    border-radius: 3px;
+    padding: 8px;
+  }
+}
+
+@media screen and (max-width: 413px) {
+  div .input-container {
+    padding: 0;
+  }
+}
+
+div.fixedDataTableCellLayout_main {
+  border-bottom: 1px solid #c1b8b4 !important;
+}
+
+div.sort-header {
+  width: 100%;
+  height: inherit;
+  cursor: pointer;
+  i {
+    float: right;
+    margin-top: -3px;
+    margin-right: -8px;
+    &.arrows-up-down {
+      @include oIconsGetIcon('arrows-up-down', #000000, 24);
+    }
+  }
+}
+
+div.legend {
+  margin-top: -5px !important;
+  div.legend-bar {
+    display: inline-block;
+    width: 10px;
+    height: 2px;
+    margin-bottom: 2px;
+    margin-right: 2px;
+    opacity: 0.8;
+    &-jr {
+      background-color: #af516c;
+    }
+    &-mid {
+      background-color: #ecafaf;
+    }
+    &-sr {
+      background-color: #d7706c;
+    }
+  }
+  span.legend-text {
+    margin-right: 4px;
+    font-size: 10px;
+    font-weight: 400;
+  }
+}
+
+/**
+ * FixedDataTable v0.6.3
+ *
+ * Copyright (c) 2015, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ */
+
+/**
+ * Copyright (c) 2015, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ * @providesModule fixedDataTable
+ *
+ */
+
+/**
+ * Table.
+ */
+.public_fixedDataTable_main {
+  border-color: #c1b8b4;
+}
+
+.public_fixedDataTable_header,
+.public_fixedDataTable_hasBottomBorder {
+  border-bottom-width: 0;
+}
+
+.public_fixedDataTable_header .public_fixedDataTableCell_main {
+  font-weight: 600;
+}
+
+.public_fixedDataTable_header,
+.public_fixedDataTable_header .public_fixedDataTableCell_main {
+  background-color: #fff1e0;
+  background-image: none;
+}
+
+.public_fixedDataTable_topShadow {
+  background: 0 0 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAECAYAAABP2FU6AAAAF0lEQVR4AWPUkNeSBhHCjJoK2twgFisAFagCCp3pJlAAAAAASUVORK5CYII=) repeat-x;
+}
+
+.public_fixedDataTable_bottomShadow {
+  background: 0 0 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAECAYAAABP2FU6AAAAHElEQVQI12MwNjZmZdAT1+Nm0JDWEGZQk1GTBgAWkwIeAEp52AAAAABJRU5ErkJggg==) repeat-x;
+}
+
+.public_fixedDataTable_horizontalScrollbar .public_Scrollbar_mainHorizontal {
+  background-color: #fff1e0;
+}
+/**
+ * Copyright (c) 2015, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ * @providesModule fixedDataTableCell
+ */
+
+/**
+ * Table cell.
+ */
+.public_fixedDataTableCell_main {
+  background-color: #fff1e0;
+  border-color: #c1b8b4;
+}
+
+.public_fixedDataTableCell_cellContent {
+  padding: 8px;
+}
+/**
+ * Copyright (c) 2015, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ * @providesModule fixedDataTableRow
+ */
+
+/**
+ * Table row.
+ */
+.public_fixedDataTableRow_main {
+  background-color: #fff1e0;
+}
+
+.public_fixedDataTableRow_highlighted,
+.public_fixedDataTableRow_highlighted .public_fixedDataTableCell_main {
+  background-color: #ffe9d7;
+}
+
+.public_fixedDataTableRow_fixedColumnsDivider {
+  border-color: #c1b8b4;
+}
+
+.public_fixedDataTableRow_columnsShadow {
+  background: 0 0 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABCAYAAAD5PA/NAAAAFklEQVQIHWPSkNeSBmJhTQVtbiDNCgASagIIuJX8OgAAAABJRU5ErkJggg==) repeat-y;
+}
+/**
+ * Copyright (c) 2015, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ * @providesModule Scrollbar
+ *
+ */
+
+/**
+ * Scrollbars.
+ */
+
+/* Touching the scroll-track directly makes the scroll-track bolder */
+.public_Scrollbar_main.public_Scrollbar_mainActive,
+.public_Scrollbar_main:hover {
+  background-color: rgba(255, 241, 224, 0.8);
+}
+
+.public_Scrollbar_mainOpaque,
+.public_Scrollbar_mainOpaque.public_Scrollbar_mainActive,
+.public_Scrollbar_mainOpaque:hover {
+  background-color: #fff1e0;
+}
+
+.public_Scrollbar_face:after {
+  background-color: #b0b0b0;
+}
+
+.public_Scrollbar_main:hover .public_Scrollbar_face:after,
+.public_Scrollbar_mainActive .public_Scrollbar_face:after,
+.public_Scrollbar_faceActive:after {
+  background-color: #777777;
+}

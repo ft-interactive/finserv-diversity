@@ -227,10 +227,10 @@ gulp.task('scripts', () =>
 
 // builds stylesheets with sass/autoprefixer
 gulp.task('styles', () =>
-  gulp.src('client/**/*.scss')
+  gulp.src(['client/**/*.scss'])
     .pipe(plumber())
     .pipe(sass({
-      includePaths: 'bower_components',
+      includePaths: ['bower_components', 'node_modules'],
       outputStyle: process.env.NODE_ENV === 'production' ? 'compressed' : 'expanded',
     }).on('error', function sassError(error) {
       handleBuildError.call(this, 'Error building Sass', error);
@@ -241,7 +241,7 @@ gulp.task('styles', () =>
 
 // renames asset files and adds a rev-manifest.json
 gulp.task('revision', () =>
-  gulp.src(['dist/**/*.css', 'dist/**/*.js'])
+  gulp.src(['dist/**/*.css', 'dist/**/*.js', 'dist/**/*.jsx'])
     .pipe(rev())
     .pipe(gulp.dest('dist'))
     .pipe(rev.manifest())

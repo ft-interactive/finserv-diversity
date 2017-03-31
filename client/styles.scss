@@ -1,16 +1,22 @@
 @import 'o-colors/main';
 @import 'components/core/main';
+@import 'fixed-data-table/dist/fixed-data-table';
+@import 'fixed-data-table/dist/fixed-data-table-base';
+@import 'components/g-table/main';
 
-/*
-      TODO: delete this comment
+img.img-graphic {
+  width: 100%;
+}
 
-      Write your code here - keep it neat!
-      Split logical parts of you project into components e.g.
+div {
+  &.table-container {
+    max-width: 1220px !important;
+    padding: 0 1em !important;
+  }
+}
 
-      /client
-        - /components
-            - /component-name
-                - styles.scss
-                - index.js
-                - template.html
-*/
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  input[type='text'] {
+    font-size: 16px;
+  }
+}
