@@ -306,15 +306,22 @@ class GTable extends Component {
         <div className="o-grid-container input-container">
           <div className="o-grid-row">
             <div data-o-grid-colspan="12 S11 Scenter M9 L8 XL7">
-              <div className="input-label">Filter by institution</div>
+              <div className="o-forms o-forms--wide">
+                <label
+                  htmlFor="o-forms-full"
+                  className="o-forms__label"
+                >
+                  Filter by institution
+                </label>
 
-              <input
-                type="text"
-                onChange={this.handleFilterChange}
-                placeholder="Start typing an institution name"
-              />
-
-              <i className="icon-plus" />
+                <input
+                  type="text"
+                  onChange={this.handleFilterChange}
+                  placeholder="Start typing an institution name"
+                  id="o-forms-full"
+                  className="o-forms__text o-forms__text--valid"
+                />
+              </div>
             </div>
           </div>
         </div>
