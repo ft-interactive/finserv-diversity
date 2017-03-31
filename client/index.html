@@ -1,8 +1,20 @@
 {% extends "layout.html" %}
 
-{% block article_body %}
-{% markdown %}
+{% block underHeader %}
+<div class="package-bar">
+  <div class="o-grid-container">
+    <div class="o-grid-row">
+      <div data-o-grid-colspan="12">
+        <div class="package-bar__text">
+          FT Series <a href="https://www.ft.com/">Management’s missing women</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
 
+{% block article_body %}
 <figure class="graphic graphic-b-1 graphic-pad-1">
   <img alt="" src="https://image.webservices.ft.com/v1/images/raw/http%3A%2F%2Fcom.ft.imagepublish.prod.s3.amazonaws.com%2Fb9ba1b1a-1634-11e7-b0c1-37e417ee6c76?source=ig&fit=scale-down&width=700" />
     <figcaption class="o-typography-caption">Kari-Ruth Pedersen</figcaption>
@@ -19,6 +31,8 @@ Women made up 25.5 per cent of senior roles in 2016, compared with 23.7 per cent
 {% endmarkdown %}{% include "graphics/bubbles.html" %}{% markdown %}
 
 Just over half the companies’ total staff are female — including 58 per cent at a junior level — and the companies have actively tried to hire and promote more women, with some insisting that women participate in the interview process and that shortlists include at least one female candidate.
+
+{% endmarkdown %}{% include './teaser.html' %}{% markdown %}
 
 Across the sector, the FT data found that professional services firms had the highest representation of women at senior levels, with one woman to every two men. Banks, insurers and asset managers were broadly similar, with about one woman to every three men.
 
@@ -58,5 +72,4 @@ Schroders was last week the latest British blue-chip company to publish pay gap 
   {{ tableElement | safe }}
 </div>
 
-{% endmarkdown %}
 {% endblock %}

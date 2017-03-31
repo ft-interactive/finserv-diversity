@@ -85,9 +85,11 @@ class GTable extends Component {
       tableWidth: 0,
       tableHeight: 0,
       sortField: null,
+      radioChecked: null,
     };
     this.handleResize = this.handleResize.bind(this);
-    this.handleFilterChange = this.handleFilterChange.bind(this);
+    this.handleTextInput = this.handleTextInput.bind(this);
+    this.handleRadioInput = this.handleRadioInput.bind(this);
     this.handleSortChange = this.handleSortChange.bind(this);
   }
 
@@ -111,12 +113,28 @@ class GTable extends Component {
     // console.log(this.state.tableHeight);
   }
 
-  handleFilterChange(element) {
+  handleRadioInput(element) {
+    const filterTerm = element.target.value;
+    const filteredData = this.props.data
+      .filter(d => d.sector.indexOf(filterTerm) !== -1);
+
+    document.getElementById('institution').value = '';
+
+    this.setState({
+      data: filteredData,
+      radioChecked: filterTerm,
+    });
+  }
+
+  handleTextInput(element) {
     const filterTerm = element.target.value.toLowerCase();
     const filteredData = this.props.data
       .filter(d => d.bank.toLowerCase().indexOf(filterTerm) !== -1);
 
-    this.setState({ data: filteredData });
+    this.setState({
+      data: filteredData,
+      radioChecked: null,
+    });
   }
 
   handleSortChange(field, direction) {
@@ -303,17 +321,105 @@ class GTable extends Component {
             <div data-o-grid-colspan="12 S11 Scenter M9 L8 XL7">
               <div className="o-forms o-forms--wide">
                 <label
-                  htmlFor="o-forms-full"
+                  className="o-forms__label"
+                  htmlFor="all"
+                >
+                  Filter by sector
+                </label>
+
+                <input
+                  type="radio"
+                  onChange={this.handleRadioInput}
+                  checked={!this.state.radioChecked}
+                  value=""
+                  className="o-forms__radio"
+                  id="all"
+                />
+
+                <label
+                  htmlFor="all"
                   className="o-forms__label"
                 >
+                  All
+                </label>
+
+                <input
+                  type="radio"
+                  onChange={this.handleRadioInput}
+                  checked={this.state.radioChecked === 'asset manager'}
+                  value="asset manager"
+                  className="o-forms__radio"
+                  id="asset-manager"
+                />
+
+                <label
+                  htmlFor="asset-manager"
+                  className="o-forms__label"
+                >
+                  Asset manager
+                </label>
+
+                <input
+                  type="radio"
+                  onChange={this.handleRadioInput}
+                  checked={this.state.radioChecked === 'bank'}
+                  value="bank"
+                  className="o-forms__radio"
+                  id="bank"
+                />
+
+                <label
+                  htmlFor="bank"
+                  className="o-forms__label"
+                >
+                  Bank
+                </label>
+
+                <input
+                  type="radio"
+                  onChange={this.handleRadioInput}
+                  checked={this.state.radioChecked === 'insurance'}
+                  value="insurance"
+                  className="o-forms__radio"
+                  id="insurance"
+                />
+
+                <label
+                  htmlFor="insurance"
+                  className="o-forms__label"
+                >
+                  Insurance
+                </label>
+
+                <input
+                  type="radio"
+                  onChange={this.handleRadioInput}
+                  checked={this.state.radioChecked === 'professional services'}
+                  value="professional services"
+                  className="o-forms__radio"
+                  id="professional-services"
+                />
+
+                <label
+                  htmlFor="professional-services"
+                  className="o-forms__label"
+                >
+                  Professional services
+                </label>
+
+                <label
+                  htmlFor="institution"
+                  className="o-forms__label"
+                >
+                  <span className="or">—OR—</span>
                   Filter by institution
                 </label>
 
                 <input
                   type="text"
-                  onChange={this.handleFilterChange}
+                  onChange={this.handleTextInput}
                   placeholder="Start typing an institution name"
-                  id="o-forms-full"
+                  id="institution"
                   className="o-forms__text o-forms__text--valid"
                 />
               </div>
