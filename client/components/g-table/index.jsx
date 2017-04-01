@@ -314,9 +314,9 @@ class GTable extends Component {
 
     return (
       <div ref={(node) => { this.node = node; }}>
-        <div className="o-grid-container input-container">
-          <div className="o-grid-row">
-            <div data-o-grid-colspan="12 S11 Scenter M9 L8 XL7">
+        <article className="article">
+          <div className="article-body o-typography-wrapper">
+            <div>
               <div className="o-forms o-forms--wide">
                 <label
                   className="o-forms__label"
@@ -423,7 +423,7 @@ class GTable extends Component {
               </div>
             </div>
           </div>
-        </div>
+        </article>
 
         <TouchExampleWrapper
           tableWidth={this.state.tableWidth}
