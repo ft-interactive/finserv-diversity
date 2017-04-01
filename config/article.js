@@ -47,7 +47,7 @@ export default () => ({ // eslint-disable-line
   title: '',
 
   // meta data
-  description: 'description',
+  description: 'Huge efforts made by the financial sector fail to close the gender gap',
 
   /*
   TODO: Select Twitter card type -
@@ -63,19 +63,19 @@ export default () => ({ // eslint-disable-line
         optional social meta data?
   */
   // General social
-   socialImage: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3Ab9ba1b1a-1634-11e7-b0c1-37e417ee6c76?source=ig&width=1400',
-   socialHeadline: '',
-   socialSummary:  'financial services',
+  socialImage: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3Ab9ba1b1a-1634-11e7-b0c1-37e417ee6c76?source=ig&width=1400',
+  socialHeadline: '',
+  socialSummary: 'Huge efforts made by the financial sector fail to close the gender gap',
 
   // TWITTER
-   twitterImage: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3Ab9ba1b1a-1634-11e7-b0c1-37e417ee6c76?source=ig&width=1400',
-   twitterCreator: '@ft',
-   tweetText:  'How successful are efforts to narrow the financial services industry’s gender gap? We gathered the data to find out.',
-  twitterHeadline:  'Finance’s missing women',
+  twitterImage: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3Ab9ba1b1a-1634-11e7-b0c1-37e417ee6c76?source=ig&width=1400',
+  twitterCreator: '@FT',
+  tweetText: 'How successful are efforts to narrow the financial services industry\'s gender gap? We gathered the data to find out.',
+  twitterHeadline: 'Finance\'s missing women',
 
   // FACEBOOK
-   facebookImage: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3Ab9ba1b1a-1634-11e7-b0c1-37e417ee6c76?source=ig&width=1400',
-   facebookHeadline: 'How are financial services firms doing on gender equality?',
+  facebookImage: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3Ab9ba1b1a-1634-11e7-b0c1-37e417ee6c76?source=ig&width=1400',
+  facebookHeadline: 'How are financial services firms doing on gender equality?',
 
   tracking: {
 

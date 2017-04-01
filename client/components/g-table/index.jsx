@@ -109,8 +109,6 @@ class GTable extends Component {
       tableWidth: this.node.offsetWidth,
       tableHeight: height,
     });
-
-    // console.log(this.state.tableHeight);
   }
 
   handleRadioInput(element) {

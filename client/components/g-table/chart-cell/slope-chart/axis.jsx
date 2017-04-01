@@ -9,10 +9,14 @@ class Axis extends Component {
     this.axisLeft = d3.svg.axis()
       .scale(this.yScale)
       .orient('left')
+      .tickValues([0, 0.5, 0.8])
+      .tickSize((props.width - props.axisMarginLeft - props.axisMarginRight) * -1)
       .tickFormat(d => `${d * 100}%`);
     this.axisRight = d3.svg.axis()
       .scale(this.yScale)
-      .orient('right');
+      .orient('right')
+      .ticks(0)
+      .tickSize(0, 0);
     this.updateD3 = this.updateD3.bind(this);
 
     this.updateD3(props);
@@ -30,24 +34,16 @@ class Axis extends Component {
     this.yScale
       .domain(props.domain)
       .range(props.range);
-
-    this.axisLeft
-      .tickValues([0, 0.5, 0.8])
-      .tickSize((props.width - props.axisMarginLeft - props.axisMarginRight) * -1);
-
-    this.axisRight
-      .ticks(0)
-      .tickSize(0, 0);
-
-    d3.selectAll('g.tick')
-        .filter(d => d === 0.5)
-      .select('line')
-        .attr('class', 'equality');
   }
 
   renderAxis() {
     d3.select(this.nodeLeft).call(this.axisLeft);
     d3.select(this.nodeRight).call(this.axisRight);
+
+    d3.selectAll('g.tick')
+        .filter(d => d === 0.5)
+      .select('line')
+        .attr('class', 'equality');
   }
 
   render() {
