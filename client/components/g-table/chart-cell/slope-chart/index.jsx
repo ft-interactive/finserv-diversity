@@ -50,32 +50,60 @@ class SlopeChart extends Component {
     let slopes = [];
     let slopeChart = null;
 
-    slopes = this.state.series.map((d, i) => {
+    slopes = this.state.series.map((series, i) => {
       const key = `slope${i}`;
+      const circles = series.map((d, index, currentSeries) => {
+        const arr = [];
 
-      if ((d[0]) && (d[1])) {
+        if (currentSeries[0]) {
+          arr.push(
+            <circle
+              cx={this.circleRadius + 20}
+              cy={this.height - this.yScale(currentSeries[0])}
+              r={this.circleRadius}
+            />,
+          );
+        }
+
+        if (currentSeries[1]) {
+          arr.push(
+            <circle
+              cx={this.width - this.circleRadius - 20}
+              cy={this.height - this.yScale(currentSeries[1])}
+              r={this.circleRadius}
+            />,
+          );
+        }
+
+        return arr;
+      });
+
+      if ((series[0]) && (series[1])) {
         return (
           <g
-            className={`slope slope-${d[2]}`}
+            className={`slope slope-${series[2]}`}
             transform={translate}
             key={key}
           >
             <line
               x1={this.circleRadius + 20}
-              y1={this.height - this.yScale(d[0])}
+              y1={this.height - this.yScale(series[0])}
               x2={this.width - this.circleRadius - 20}
-              y2={this.height - this.yScale(d[1])}
+              y2={this.height - this.yScale(series[1])}
             />
-            <circle
-              cx={this.circleRadius + 20}
-              cy={this.height - this.yScale(d[0])}
-              r={this.circleRadius}
-            />
-            <circle
-              cx={this.width - this.circleRadius - 20}
-              cy={this.height - this.yScale(d[1])}
-              r={this.circleRadius}
-            />
+            {circles}
+          </g>
+        );
+      }
+
+      if ((series[0]) || (series[1])) {
+        return (
+          <g
+            className={`slope slope-${series[2]}`}
+            transform={translate}
+            key={key}
+          >
+            {circles}
           </g>
         );
       }
@@ -83,8 +111,8 @@ class SlopeChart extends Component {
       return null;
     });
 
-    this.state.series.map((d, i) => {
-      if (d[0] == null && d[1] == null) {
+    this.state.series.map((series, i) => {
+      if (series[0] == null && series[1] == null) {
         nulls.push(i);
       }
 
