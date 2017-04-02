@@ -13,7 +13,7 @@ $o-icons-is-silent: false;
 }
 
 div.fixedDataTableCellLayout_main {
-  border-bottom: 1px solid #c1b8b4 !important;
+  border: none;
 }
 
 div.sort-header {
@@ -156,7 +156,6 @@ p.notes {
  */
 .public_fixedDataTableCell_main {
   background-color: #fff1e0;
-  border-color: #c1b8b4;
 }
 
 .public_fixedDataTableCell_cellContent {

@@ -33,16 +33,13 @@ function NumberCell(props) {
 
 function PercentageCell(props) {
   const value = props.data[props.rowIndex][props.field];
+  const style = { width: '100%', textAlign: 'right' };
 
   if (isNaN(value) || value == null) {
-    return <Cell><em>-</em></Cell>;
+    return <Cell style={style}><em>-</em></Cell>;
   }
 
-  return (
-    <Cell style={{ width: '100%', textAlign: 'right' }}>
-      {(value * 100).toFixed(1)}
-    </Cell>
-  );
+  return <Cell style={style}>{(value * 100).toFixed(1)}</Cell>;
 }
 
 class SortHeaderCell extends Component {
