@@ -457,7 +457,7 @@ class GTable extends Component {
         <article className="article">
           <div className="article-body o-typography-wrapper">
             <p className="notes">
-              * 2014 data for period ending January 1, 2015<br />
+              * 2014 data for period January 1, 2014-January 1, 2015<br />
               ** Includes FT estimates<br />
               *** Prior year is 2015<br />
               <Twemoji className="emoji-container emoji-container-notes">🇺🇸</Twemoji>
