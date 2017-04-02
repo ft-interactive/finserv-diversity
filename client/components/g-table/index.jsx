@@ -3,15 +3,22 @@ import { Table, Column, Cell } from 'fixed-data-table';
 import throttle from 'lodash/throttle';
 import ChartCell from './chart-cell/index.jsx';
 import TouchExampleWrapper from './TouchExampleWrapper';
+import Twemoji from 'react-twemoji';
 
 function TextCell(props) {
   const value = props.data[props.rowIndex][props.field];
+  const emoji = props.data[props.rowIndex][props.emoji];
 
   if (value === 'nd' || value == null) {
     return <Cell style={props.style}><em>-</em></Cell>;
   }
 
-  return <Cell style={props.style}>{value}</Cell>;
+  return (
+    <Cell style={props.style}>
+      {value}
+      <Twemoji className="emoji-container">{emoji}</Twemoji>
+    </Cell>
+  );
 }
 
 function NumberCell(props) {
@@ -190,6 +197,7 @@ class GTable extends Component {
           <TextCell
             data={this.state.data}
             field="bank"
+            emoji="emoji"
           />
         }
         width={151}
@@ -445,6 +453,24 @@ class GTable extends Component {
             {column6}
           </Table>
         </TouchExampleWrapper>
+
+        <article className="article">
+          <div className="article-body o-typography-wrapper">
+            <p className="notes">
+              * 2014 data for period ending January 1, 2015<br />
+              ** Includes FT estimates<br />
+              *** Prior year is 2015<br />
+              <Twemoji className="emoji-container emoji-container-notes">🇺🇸</Twemoji>
+              <span>&nbsp;Data for US employees only</span><br />
+              <Twemoji className="emoji-container emoji-container-notes">🇬🇧</Twemoji>
+              <span>&nbsp;Data for UK employees only</span><br />
+              <Twemoji className="emoji-container emoji-container-notes">🇯🇵</Twemoji>
+              <span>&nbsp;Data for Japan employees only</span><br />
+              <Twemoji className="emoji-container emoji-container-notes">🇬🇧🇮🇪</Twemoji>
+              <span style={{ marginLeft: '14px' }}>&nbsp;Data for UK and Ireland employees only</span><br />
+            </p>
+          </div>
+        </article>
       </div>
     );
   }
