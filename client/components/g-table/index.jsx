@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Table, Column, Cell } from 'fixed-data-table';
 import throttle from 'lodash/throttle';
+import Twemoji from 'react-twemoji';
 import ChartCell from './chart-cell/index.jsx';
 import TouchExampleWrapper from './TouchExampleWrapper';
-import Twemoji from 'react-twemoji';
 
 function TextCell(props) {
   const value = props.data[props.rowIndex][props.field];
@@ -90,6 +90,7 @@ class GTable extends Component {
       tableHeight: 0,
       sortField: null,
       radioChecked: null,
+      scrollToRow: null,
     };
     this.handleResize = this.handleResize.bind(this);
     this.handleTextInput = this.handleTextInput.bind(this);
@@ -125,6 +126,7 @@ class GTable extends Component {
     this.setState({
       data: filteredData,
       radioChecked: filterTerm,
+      scrollToRow: 0,
     });
   }
 
@@ -136,6 +138,7 @@ class GTable extends Component {
     this.setState({
       data: filteredData,
       radioChecked: null,
+      scrollToRow: 0,
     });
   }
 
@@ -169,6 +172,7 @@ class GTable extends Component {
     this.setState({
       data,
       sortField: field,
+      scrollToRow: 0,
     });
   }
 
@@ -441,6 +445,7 @@ class GTable extends Component {
             height={this.state.tableHeight}
             headerHeight={50}
             touchScrollEnabled
+            scrollToRow={this.state.scrollToRow}
           >
             {column1}
             {column2}
@@ -478,11 +483,13 @@ TextCell.propTypes = {
   rowIndex: React.PropTypes.number,
   field: React.PropTypes.string,
   style: React.PropTypes.object, // eslint-disable-line
+  emoji: React.PropTypes.string,
 };
 
 TextCell.defaultProps = {
   rowIndex: 0,
   field: '',
+  emoji: '',
 };
 
 NumberCell.propTypes = {
