@@ -16,6 +16,7 @@ function TextCell(props) {
   return (
     <Cell style={props.style}>
       {value}
+
       <Twemoji className="emoji-container">{emoji}</Twemoji>
     </Cell>
   );
@@ -73,7 +74,9 @@ class SortHeaderCell extends Component {
         onClick={() => this.handleSortChange(field, direction)}
         className="sort-header"
       >
-        {this.props.value}<i className="arrows-up-down" />
+        {this.props.value}
+
+        <i className="arrows-up-down" />
       </Cell>
     );
   }
@@ -90,7 +93,6 @@ class GTable extends Component {
       tableHeight: 0,
       sortField: null,
       radioChecked: null,
-      scrollToRow: null,
     };
     this.handleResize = this.handleResize.bind(this);
     this.handleTextInput = this.handleTextInput.bind(this);
@@ -126,7 +128,6 @@ class GTable extends Component {
     this.setState({
       data: filteredData,
       radioChecked: filterTerm,
-      scrollToRow: 0,
     });
   }
 
@@ -138,7 +139,6 @@ class GTable extends Component {
     this.setState({
       data: filteredData,
       radioChecked: null,
-      scrollToRow: 0,
     });
   }
 
@@ -172,7 +172,6 @@ class GTable extends Component {
     this.setState({
       data,
       sortField: field,
-      scrollToRow: 0,
     });
   }
 
@@ -445,7 +444,6 @@ class GTable extends Component {
             height={this.state.tableHeight}
             headerHeight={50}
             touchScrollEnabled
-            scrollToRow={this.state.scrollToRow}
           >
             {column1}
             {column2}
