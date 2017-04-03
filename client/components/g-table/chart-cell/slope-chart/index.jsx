@@ -18,12 +18,12 @@ class SlopeChart extends Component {
     this.updateD3(props);
   }
 
-  componentWillReceiveProps(newProps) {
+  componentWillReceiveProps(nextProps) {
     this.setState({
-      series: newProps.series,
+      series: nextProps.series,
     });
 
-    this.updateD3(newProps);
+    this.updateD3(nextProps);
   }
 
   updateD3(props) {

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Table, Column, Cell } from 'fixed-data-table';
+import { Table, Column, Cell } from 'fixed-data-table-2';
 import throttle from 'lodash/throttle';
 import Twemoji from 'react-twemoji';
 import ChartCell from './chart-cell/index.jsx';
-import TouchExampleWrapper from './TouchExampleWrapper';
 
 function TextCell(props) {
   const value = props.data[props.rowIndex][props.field];
@@ -93,17 +92,25 @@ class GTable extends Component {
       tableHeight: 0,
       sortField: null,
       radioChecked: null,
+      isScrolling: false,
     };
     this.handleResize = this.handleResize.bind(this);
     this.handleTextInput = this.handleTextInput.bind(this);
     this.handleRadioInput = this.handleRadioInput.bind(this);
     this.handleSortChange = this.handleSortChange.bind(this);
+    this.resetScrollState = this.resetScrollState.bind(this);
   }
 
   componentDidMount() {
     this.handleResize();
 
     window.addEventListener('resize', throttle(this.handleResize, 250));
+  }
+
+  componentDidUpdate() {
+    if (this.state.isScrolling) {
+      this.resetScrollState();
+    }
   }
 
   handleResize() {
@@ -128,6 +135,7 @@ class GTable extends Component {
     this.setState({
       data: filteredData,
       radioChecked: filterTerm,
+      isScrolling: true,
     });
   }
 
@@ -139,6 +147,7 @@ class GTable extends Component {
     this.setState({
       data: filteredData,
       radioChecked: null,
+      isScrolling: true,
     });
   }
 
@@ -172,18 +181,21 @@ class GTable extends Component {
     this.setState({
       data,
       sortField: field,
+      isScrolling: true,
     });
   }
 
+  resetScrollState() {
+    this.setState({ isScrolling: false });
+  }
+
   render() {
-    let column1 = null;
-    let column2 = null;
     let column3 = null;
     let column4 = null;
     let column5 = null;
     let column6 = null;
 
-    column1 = (
+    const column1 = (
       <Column
         header={
           <SortHeaderCell
@@ -205,7 +217,7 @@ class GTable extends Component {
       />
     );
 
-    column2 = (
+    const column2 = (
       <Column
         header={
           <Cell className="chart-cell-header">
@@ -433,26 +445,22 @@ class GTable extends Component {
           </div>
         </article>
 
-        <TouchExampleWrapper
-          tableWidth={this.state.tableWidth}
-          tableHeight={this.state.tableHeight}
+        <Table
+          rowsCount={this.state.data.length}
+          rowHeight={100}
+          width={this.state.tableWidth}
+          height={this.state.tableHeight}
+          headerHeight={50}
+          touchScrollEnabled
+          scrollToRow={this.state.isScrolling ? 0 : null}
         >
-          <Table
-            rowsCount={this.state.data.length}
-            rowHeight={100}
-            width={this.state.tableWidth}
-            height={this.state.tableHeight}
-            headerHeight={50}
-            touchScrollEnabled
-          >
-            {column1}
-            {column2}
-            {column3}
-            {column4}
-            {column5}
-            {column6}
-          </Table>
-        </TouchExampleWrapper>
+          {column1}
+          {column2}
+          {column3}
+          {column4}
+          {column5}
+          {column6}
+        </Table>
 
         <article className="article">
           <div className="article-body o-typography-wrapper">

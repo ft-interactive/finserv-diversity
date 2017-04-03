@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Cell } from 'fixed-data-table';
+import { Cell } from 'fixed-data-table-2';
 import SlopeChart from './slope-chart/index.jsx';
 
 class ChartCell extends Component {
@@ -10,9 +10,9 @@ class ChartCell extends Component {
     };
   }
 
-  componentWillReceiveProps(newProps) {
+  componentWillReceiveProps(nextProps) {
     this.setState({
-      data: newProps.data[newProps.rowIndex],
+      data: nextProps.data[nextProps.rowIndex],
     });
   }
 

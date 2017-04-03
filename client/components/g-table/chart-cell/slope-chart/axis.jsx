@@ -24,8 +24,8 @@ class Axis extends Component {
 
   componentDidMount() { this.renderAxis(); }
 
-  componentWillReceiveProps(newProps) {
-    this.updateD3(newProps);
+  componentWillReceiveProps(nextProps) {
+    this.updateD3(nextProps);
   }
 
   componentDidUpdate() { this.renderAxis(); }
