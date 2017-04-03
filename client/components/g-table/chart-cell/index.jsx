@@ -10,9 +10,9 @@ class ChartCell extends Component {
     };
   }
 
-  componentWillReceiveProps(newProps) {
+  componentWillReceiveProps(nextProps) {
     this.setState({
-      data: newProps.data[newProps.rowIndex],
+      data: nextProps.data[nextProps.rowIndex],
     });
   }
 
