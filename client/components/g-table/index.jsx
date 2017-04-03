@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Table, Column, Cell } from 'fixed-data-table';
+import { Table, Column, Cell } from 'fixed-data-table-2';
 import throttle from 'lodash/throttle';
 import Twemoji from 'react-twemoji';
 import ChartCell from './chart-cell/index.jsx';
-import TouchExampleWrapper from './TouchExampleWrapper';
 
 function TextCell(props) {
   const value = props.data[props.rowIndex][props.field];
@@ -176,14 +175,12 @@ class GTable extends Component {
   }
 
   render() {
-    let column1 = null;
-    let column2 = null;
     let column3 = null;
     let column4 = null;
     let column5 = null;
     let column6 = null;
 
-    column1 = (
+    const column1 = (
       <Column
         header={
           <SortHeaderCell
@@ -205,7 +202,7 @@ class GTable extends Component {
       />
     );
 
-    column2 = (
+    const column2 = (
       <Column
         header={
           <Cell className="chart-cell-header">
@@ -433,26 +430,21 @@ class GTable extends Component {
           </div>
         </article>
 
-        <TouchExampleWrapper
-          tableWidth={this.state.tableWidth}
-          tableHeight={this.state.tableHeight}
+        <Table
+          rowsCount={this.state.data.length}
+          rowHeight={100}
+          width={this.state.tableWidth}
+          height={this.state.tableHeight}
+          headerHeight={50}
+          touchScrollEnabled
         >
-          <Table
-            rowsCount={this.state.data.length}
-            rowHeight={100}
-            width={this.state.tableWidth}
-            height={this.state.tableHeight}
-            headerHeight={50}
-            touchScrollEnabled
-          >
-            {column1}
-            {column2}
-            {column3}
-            {column4}
-            {column5}
-            {column6}
-          </Table>
-        </TouchExampleWrapper>
+          {column1}
+          {column2}
+          {column3}
+          {column4}
+          {column5}
+          {column6}
+        </Table>
 
         <article className="article">
           <div className="article-body o-typography-wrapper">
