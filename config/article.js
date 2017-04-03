@@ -63,18 +63,18 @@ export default () => ({ // eslint-disable-line
         optional social meta data?
   */
   // General social
-  socialImage: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3Ad5ab34a4-1886-11e7-a53d-df09f373be87?source=ig&width=1400',
+  socialImage: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3Ae14fd81e-1890-11e7-a53d-df09f373be87?source=ig&width=1400',
   socialHeadline: '',
   socialSummary: 'Huge efforts made by the financial sector fail to close the gender gap',
 
   // TWITTER
-  twitterImage: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3Ad5ab34a4-1886-11e7-a53d-df09f373be87?source=ig&width=1400',
+  twitterImage: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3Ae14fd81e-1890-11e7-a53d-df09f373be87?source=ig&width=1400',
   twitterCreator: '@FT',
   tweetText: 'How successful are efforts to narrow the financial services industry\'s gender gap? We gathered the data to find out.',
   twitterHeadline: 'Finance\'s missing women',
 
   // FACEBOOK
-  facebookImage: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3Ad5ab34a4-1886-11e7-a53d-df09f373be87?source=ig&width=1400',
+  facebookImage: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3Ae14fd81e-1890-11e7-a53d-df09f373be87?source=ig&width=1400',
   facebookHeadline: 'How are financial services firms doing on gender equality?',
 
   tracking: {
