@@ -11,10 +11,10 @@ export default () => ({ // eslint-disable-line
   //       new Date('2016-05-17T17:11:22Z')
   publishedDate: new Date('2017-04-04T08:08:00Z'),
 
-  headline: 'Data reveal women’s struggle to reach top in finance',
+  headline: 'Women struggle to reach top in finance despite growing ranks',
 
   // summary === standfirst (Summary is what the content API calls it)
-  summary: 'Huge efforts made by the financial sector fail to close the gender gap',
+  summary: 'FT research reveals failure to close gender gap in middle and senior roles',
 
   topic: {
     name: 'Financial Services',
