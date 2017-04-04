@@ -11,7 +11,7 @@ export default () => ({ // eslint-disable-line
   //       new Date('2016-05-17T17:11:22Z')
   publishedDate: new Date('2017-04-04T05:00:00Z'),
 
-  headline: 'Women vastly outnumbered by men as they climb the corporate ranks',
+  headline: 'Data reveal women’s struggle to reach top in finance',
 
   // summary === standfirst (Summary is what the content API calls it)
   summary: 'Huge efforts made by the financial sector fail to close the gender gap',
