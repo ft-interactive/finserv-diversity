@@ -89,3 +89,13 @@ span.or {
   display: block;
   margin: 6px 0 10px;
 }
+
+h1.o-typography-heading1 {
+  margin: 0 0 20px !important;
+}
+
+p.o-typography-lead {
+  line-height: 1.2 !important;
+  font-size: 22px !important;
+  opacity: 0.8;
+}
