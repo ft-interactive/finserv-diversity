@@ -71,7 +71,7 @@ export default () => ({ // eslint-disable-line
   twitterImage: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3Ae14fd81e-1890-11e7-a53d-df09f373be87?source=ig&width=1400',
   twitterCreator: '@FT',
   tweetText: 'How successful are efforts to narrow the financial services industry\'s gender gap? We gathered the data to find out.',
-  twitterHeadline: 'Finance\'s missing women',
+  twitterHeadline: 'Management\'s missing women',
 
   // FACEBOOK
   facebookImage: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3Ae14fd81e-1890-11e7-a53d-df09f373be87?source=ig&width=1400',
