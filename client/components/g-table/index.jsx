@@ -449,10 +449,10 @@ class GTable extends Component {
           rowsCount={this.state.data.length}
           rowHeight={100}
           width={this.state.tableWidth}
-          height={this.state.tableHeight}
+          height={(this.state.data.length * 100) + 52}
           headerHeight={50}
-          touchScrollEnabled
-          scrollToRow={this.state.isScrolling ? 0 : null}
+          // touchScrollEnabled
+          // scrollToRow={this.state.isScrolling ? 0 : null}
         >
           {column1}
           {column2}
