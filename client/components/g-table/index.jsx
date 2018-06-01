@@ -89,7 +89,7 @@ class GTable extends Component {
       data: props.data,
       pageWidth: 0,
       tableWidth: 0,
-      tableHeight: 0,
+      // tableHeight: 0,
       sortField: null,
       radioChecked: null,
       isScrolling: false,
@@ -114,14 +114,14 @@ class GTable extends Component {
   }
 
   handleResize() {
-    const height = document.documentElement.clientHeight - 159 > 600 ?
-      600 :
-      document.documentElement.clientHeight - 159;
+    // const height = document.documentElement.clientHeight - 159 > 600 ?
+    //   600 :
+    //   document.documentElement.clientHeight - 159;
 
     this.setState({
       pageWidth: Math.max(document.documentElement.clientWidth, window.innerWidth || 0),
       tableWidth: this.node.offsetWidth,
-      tableHeight: height,
+      // tableHeight: height,
     });
   }
 
@@ -449,7 +449,7 @@ class GTable extends Component {
           rowsCount={this.state.data.length}
           rowHeight={100}
           width={this.state.tableWidth}
-          height={(this.state.data.length * 100) + 52}
+          height={(this.state.data.length * 100) + 67}
           headerHeight={50}
           // touchScrollEnabled
           // scrollToRow={this.state.isScrolling ? 0 : null}
